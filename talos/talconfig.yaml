@@ -20,8 +20,7 @@ cniConfig:
 nodes:
   - hostname: "k8s-01"
     ipAddress: "172.16.69.11"
-    installDiskSelector:
-      serial: "sda"
+    installDisk: "/dev/sda"
     machineSpec:
       secureboot: false
     talosImageURL: factory.talos.dev/installer/a33fa69290a9f8aaa63695535609978570e0c5ac7ef74eb998fbe3de78d8749e
