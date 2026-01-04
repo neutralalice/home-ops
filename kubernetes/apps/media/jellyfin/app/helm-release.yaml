@@ -65,6 +65,7 @@ spec:
             sectionName: https
     persistence:
       media:
+        enabled: true
         type: nfs
         server: 172.16.69.17
         path: /volume1/media
