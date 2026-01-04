@@ -64,13 +64,13 @@ spec:
             namespace: networking
             sectionName: https
     persistence:
-#      media:
-#        type: nfs
-#        server: 172.16.69.17
-#        path: /volume1/media
-#        globalMounts:
-#          - path: /data
-#            readonly: true
+      media:
+        type: nfs
+        server: 172.16.69.17
+        path: /volume1/media
+        globalMounts:
+          - path: /data
+            readonly: true
       tmpfs:
         type: emptyDir
         advancedMounts:
