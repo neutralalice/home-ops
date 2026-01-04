@@ -63,7 +63,7 @@ spec:
           - name: envoy-internal
             namespace: networking
             sectionName: https
-#    persistence:
+    persistence:
 #      media:
 #        type: nfs
 #        server: 172.16.69.17
@@ -71,14 +71,14 @@ spec:
 #        globalMounts:
 #          - path: /data
 #            readonly: true
-#      tmpfs:
-#        type: emptyDir
-#        advancedMounts:
-#          jellyfin:
-#            app:
-#              - path: /cache
-#                subPath: cache
-#              - path: /config/log
-#                subPath: log
-#              - path: /tmp
-#                subPath: tmp
+      tmpfs:
+        type: emptyDir
+        advancedMounts:
+          jellyfin:
+            app:
+              - path: /cache
+                subPath: cache
+              - path: /config/log
+                subPath: log
+              - path: /tmp
+                subPath: tmp
