@@ -2,7 +2,7 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: jellyfin
+  name: &app jellyfin
 spec:
   interval: 1h
   chartRef:
@@ -39,6 +39,8 @@ spec:
               readOnlyRootFilesystem: true
               capabilities: {drop: ["ALL"]}
             resources:
+              claims:
+                - name: gpu
               requests:
                 cpu: 2
                 memory: 2Gi
@@ -46,6 +48,9 @@ spec:
                 cpu: 6
                 memory: 6Gi
     defaultPodOptions:
+      resourceClaims:
+        - name: gpu
+          resourceClaimTemplateName: *app -gpu
       securityContext:
         runAsNonRoot: true
         runAsUser: 1000
