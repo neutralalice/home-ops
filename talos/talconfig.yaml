@@ -23,8 +23,21 @@ nodes:
     installDisk: "/dev/sda"
     machineSpec:
       secureboot: false
-    talosImageURL: factory.talos.dev/installer/a33fa69290a9f8aaa63695535609978570e0c5ac7ef74eb998fbe3de78d8749e
+   # talosImageURL: factory.talos.dev/installer/a33fa69290a9f8aaa63695535609978570e0c5ac7ef74eb998fbe3de78d8749e
     controlPlane: true
+    schematic:
+      customization:
+        extraKernelArgs:
+          - net.ifnames=0
+          - mitigations=off
+          - sysctl.kernel.kexec_load_disabled=1 # try this in case xe won't load
+        systemExtensions:
+          officialExtensions:
+            - siderolabs/mei
+            - siderolabs/thunderbolt
+            - siderolabs/xe
+            - siderolabs/intel-ucode
+        bootloader: sd-boot
     networkInterfaces:
       - deviceSelector:
           hardwareAddr: "48:21:0b:35:a3:c7"
@@ -37,7 +50,7 @@ nodes:
         mtu: 1500
         vip:
           ip: "172.16.69.10"
-
+          # TODO: add thunderbolt patches
 # Global patches
 patches:
   - "@./patches/global/machine-files.yaml"
