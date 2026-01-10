@@ -36,7 +36,6 @@ spec:
         ssl: false
         prometheusEndpoint: http://prometheus-operated.observability.svc.cluster.local:9090
       mgr:
-        count: 1
         modules:
           - name: diskprediction_local
             enabled: true
@@ -46,8 +45,6 @@ spec:
             enabled: true
           - name: rook
             enabled: true
-      mon:
-        count: 1
       network:
         provider: host
         addressRanges:
@@ -67,7 +64,7 @@ spec:
       storage:
         useAllNodes: true
         useAllDevices: false
-        devicePathFilter: /dev/disk/by-id/nvme-WD_BLACK_SN850X_2000GB_.*
+        devicePathFilter: /dev/disk/by-id/nvme-(WD_BLACK_SN850X_2000GB_.*|Samsung_SSD_970_EVO_Plus_1TB_.*).*
         config:
           osdsPerDevice: "1"
     cephBlockPools:
@@ -75,7 +72,7 @@ spec:
         spec:
           failureDomain: host
           replicated:
-            size: 1
+            size: 3
         storageClass:
           enabled: true
           name: ceph-block
