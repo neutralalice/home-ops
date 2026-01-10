@@ -22,26 +22,35 @@ nodes:
     ipAddress: "172.16.69.11"
     installDisk: "/dev/sda"
     machineSpec:
+      mode: metal
+      arch: amd64
+      useUKI: true
       secureboot: false
-   # talosImageURL: factory.talos.dev/installer/a33fa69290a9f8aaa63695535609978570e0c5ac7ef74eb998fbe3de78d8749e
     controlPlane: true
+    talosImageURL: factory.talos.dev/metal-installer/3763bf805a3d1e8835fc422327982830168f7556d24491ed038adc43cc1b12f0
     schematic:
       customization:
         extraKernelArgs:
-          - net.ifnames=0
+          - security=none # disables LSM
+          - -selinux # disables selinux 1 is permissive
           - mitigations=off
-          - sysctl.kernel.kexec_load_disabled=1 # try this in case xe won't load
+          - sysctl.kernel.kexec_load_disabled=1 # xe load check
+          - intel_iommu=on
+          - iommu=pt
+          - i915.force_probe=!46a6 # disable igpu device id for i915
+          - xe.force_probe=46a6 # enable igpu device id for xe
         systemExtensions:
           officialExtensions:
-            - siderolabs/mei
+#            - siderolabs/mei
             - siderolabs/thunderbolt
+            - siderolabs/i915 # note: xe takes guc from i915
             - siderolabs/xe
             - siderolabs/intel-ucode
-        bootloader: sd-boot
+#        bootloader: sd-boot
     networkInterfaces:
       - deviceSelector:
           hardwareAddr: "48:21:0b:35:a3:c7"
-        dhcp: false
+        dhcp: true
         addresses:
           - "172.16.69.11/24"
         routes:
@@ -50,7 +59,86 @@ nodes:
         mtu: 1500
         vip:
           ip: "172.16.69.10"
-          # TODO: add thunderbolt patches
+  - hostname: "k8s-02"
+    ipAddress: "172.16.69.12"
+    installDisk: "/dev/sda"
+    machineSpec:
+      mode: metal
+      arch: amd64
+      useUKI: true
+      secureboot: false
+    controlPlane: true
+    talosImageURL: factory.talos.dev/metal-installer/3763bf805a3d1e8835fc422327982830168f7556d24491ed038adc43cc1b12f0
+    schematic:
+      customization:
+        extraKernelArgs:
+          - security=none # disables LSM
+          - -selinux # disables selinux 1 is permissive
+          - mitigations=off
+          - sysctl.kernel.kexec_load_disabled=1 # xe load check
+          - intel_iommu=on
+          - iommu=pt
+          - i915.force_probe=!46a6 # disable igpu device id for i915
+          - xe.force_probe=46a6 # enable igpu device id for xe
+        systemExtensions:
+          officialExtensions:
+#            - siderolabs/mei
+            - siderolabs/thunderbolt
+            - siderolabs/i915 # note: xe takes guc from i915
+            - siderolabs/xe
+            - siderolabs/intel-ucode
+    networkInterfaces:
+      - deviceSelector:
+          hardwareAddr: "48:21:0b:3d:9e:f9"
+        dhcp: true
+        addresses:
+          - "172.16.69.12/24"
+        routes:
+          - network: "0.0.0.0/0"
+            gateway: "172.16.69.1"
+        mtu: 1500
+        vip:
+          ip: "172.16.69.10"
+  - hostname: "k8s-03"
+    ipAddress: "172.16.69.13"
+    installDisk: "/dev/sda"
+    machineSpec:
+      mode: metal
+      arch: amd64
+      useUKI: true
+      secureboot: false
+    controlPlane: true
+    talosImageURL: factory.talos.dev/metal-installer/3763bf805a3d1e8835fc422327982830168f7556d24491ed038adc43cc1b12f0
+    schematic:
+      customization:
+        extraKernelArgs:
+          - security=none # disables LSM
+          - -selinux # disables selinux 1 is permissive
+          - mitigations=off
+          - sysctl.kernel.kexec_load_disabled=1 # xe load check
+          - intel_iommu=on
+          - iommu=pt
+          - i915.force_probe=!46a6 # disable igpu device id for i915
+          - xe.force_probe=46a6 # enable igpu device id for xe
+        systemExtensions:
+          officialExtensions:
+#            - siderolabs/mei
+            - siderolabs/thunderbolt
+            - siderolabs/i915 # note: xe takes guc from i915
+            - siderolabs/xe
+            - siderolabs/intel-ucode
+    networkInterfaces:
+      - deviceSelector:
+          hardwareAddr: "48:21:0b:36:00:38"
+        dhcp: true
+        addresses:
+          - "172.16.69.13/24"
+        routes:
+          - network: "0.0.0.0/0"
+            gateway: "172.16.69.1"
+        mtu: 1500
+        vip:
+          ip: "172.16.69.10"
 # Global patches
 patches:
   - "@./patches/global/machine-files.yaml"
