@@ -64,27 +64,37 @@ spec:
             port: *port
     route:
       app:
+        hostnames:
+          - jellyfin.arita.moe
         parentRefs:
           - name: envoy-internal
             namespace: networking
             sectionName: https
     persistence:
+      config:
+        existingClaim: jellyfin-config
+        advancedMounts:
+          emby:
+            app:
+              - path: /config
       media:
         enabled: true
         type: nfs
         server: 172.16.69.17
         path: /volume1/media
         globalMounts:
-          - path: /data
+          - path: /media
             readOnly: true
       tmpfs:
         type: emptyDir
         advancedMounts:
           jellyfin:
             app:
-              - path: /cache
+              - path: /config/cache
                 subPath: cache
               - path: /config/log
                 subPath: log
               - path: /tmp
                 subPath: tmp
+              - path: /transcode
+                subPath: transcode
