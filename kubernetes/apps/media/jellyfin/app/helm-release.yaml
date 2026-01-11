@@ -100,3 +100,5 @@ spec:
                 subPath: log
               - path: /tmp
                 subPath: tmp
+              - path: /transcode
+                subPath: transcode
