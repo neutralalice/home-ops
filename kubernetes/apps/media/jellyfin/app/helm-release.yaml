@@ -92,9 +92,11 @@ spec:
             app:
               - path: /cache
                 subPath: cache
+              - path: /cache/transcodes
+                subPath: transcodes
+              - path: /cache/images
+                subPath: images
               - path: /config/log
                 subPath: log
               - path: /tmp
                 subPath: tmp
-              - path: /transcode
-                subPath: transcode
