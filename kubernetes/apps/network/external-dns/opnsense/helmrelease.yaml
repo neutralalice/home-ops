@@ -15,7 +15,7 @@ spec:
     extraArgs:
       - --ignore-ingress-tls-spec
     interval: 10m
-    logLevel: &logLevel info
+    logLevel: &logLevel debug
     policy: sync
     provider:
       name: webhook
@@ -71,4 +71,4 @@ spec:
       - gateway-httproute
     triggerLoopOnEvent: true
     txtOwnerId: k8s-internal
-    txtPrefix: "k8s."
+    txtPrefix: k8s.
