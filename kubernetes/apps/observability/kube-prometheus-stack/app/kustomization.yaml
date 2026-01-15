@@ -4,5 +4,6 @@ kind: Kustomization
 resources:
   - ./oci-repository.yaml
   - ./helm-release.yaml
+  - ./grafanadashboard.yaml
 #  - ./alertmanager-config.yaml
 #  - ./scrapeconfigs
