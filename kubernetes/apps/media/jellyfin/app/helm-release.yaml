@@ -64,6 +64,8 @@ spec:
             port: *port
     route:
       app:
+        annotations:
+          external-dns.alpha.kubernetes.io/internal: "true"
         hostnames:
           - jellyfin.arita.moe
         parentRefs:
