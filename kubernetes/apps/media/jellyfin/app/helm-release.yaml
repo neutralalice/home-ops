@@ -59,6 +59,8 @@ spec:
         fsGroupChangePolicy: OnRootMismatch
     service:
       app:
+        annotations:
+          external-dns.alpha.kubernetes.io/hostname: jellyfin.arita.moe
         ports:
           http:
             port: *port
