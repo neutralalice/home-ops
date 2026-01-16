@@ -39,6 +39,8 @@ spec:
       enabled: false
     nodeExporter:
       operatingSystems:
+        linux:
+          enabled: false
         aix:
           enabled: false
         darwin:
