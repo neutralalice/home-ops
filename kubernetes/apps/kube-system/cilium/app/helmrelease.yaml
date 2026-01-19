@@ -25,6 +25,9 @@ spec:
     # devices: eno+ eth+
     dashboards:
       enabled: true
+    enableIPv4BIGTCP: true
+    enableIPv6BIGTCP: true
+    enableIPv6Masquerade: true
     endpointRoutes:
       enabled: true
     envoy:
@@ -41,6 +44,9 @@ spec:
     ipv6:
       enabled: true
     ipv6NativeRoutingCIDR: "fd00:cafe:c0fe:ee00::/56"
+    k8s:
+      requireIPv4PodCIDR: true
+      requireIPv6PodCIDR: true
     k8sServiceHost: 127.0.0.1
     k8sServicePort: 7445
     kubeProxyReplacement: true
