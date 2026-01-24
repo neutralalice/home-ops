@@ -15,7 +15,7 @@
 apiVersion: monitoring.coreos.com/v1
 kind: Probe
 metadata:
-  name: devices
+  name: ip4-check
 spec:
   module: http4
   prober:
@@ -28,7 +28,7 @@ spec:
 apiVersion: monitoring.coreos.com/v1
 kind: Probe
 metadata:
-  name: devices
+  name: ip6-check
 spec:
   module: http6
   prober:
