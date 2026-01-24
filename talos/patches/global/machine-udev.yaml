@@ -1,0 +1,5 @@
+machine:
+  udev:
+    rules:
+      - # Thunderbolt - Disable Power Management
+        ACTION=="add", SUBSYSTEM=="thunderbolt", ATTR{power/control}="on"
