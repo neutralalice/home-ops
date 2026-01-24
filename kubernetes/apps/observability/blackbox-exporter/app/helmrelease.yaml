@@ -7,7 +7,7 @@ metadata:
 spec:
   chartRef:
     kind: OCIRepository
-    name: prometheus-blackbox-exporter
+    name: blackbox-exporter
   interval: 1h
   values:
     fullnameOverride: blackbox-exporter
