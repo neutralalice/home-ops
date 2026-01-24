@@ -23,7 +23,7 @@ spec:
   targets:
     staticConfig:
       static:
-        - ipv4test.arita.moe
+        - https://ipv4test.arita.moe
 ---
 apiVersion: monitoring.coreos.com/v1
 kind: Probe
@@ -36,7 +36,7 @@ spec:
   targets:
     staticConfig:
       static:
-        - ipv6test.arita.moe
+        - https://ipv6test.arita.moe
 ---
 apiVersion: monitoring.coreos.com/v1
 kind: Probe
