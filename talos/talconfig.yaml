@@ -10,8 +10,8 @@ additionalApiServerCertSans: &sans
   - "172.16.69.10"
 additionalMachineCertSans: *sans
 
-clusterPodNets: ["10.42.0.0/16"]
-clusterSvcNets: ["10.43.0.0/16"]
+clusterPodNets: ["10.42.0.0/16"] #, "fdca:fec0:ffee:0042::/112"
+clusterSvcNets: ["10.43.0.0/16"] #, "fdca:fec0:ffee:0043::/112"
 
 # Disable built-in CNI to use Cilium
 cniConfig:
@@ -31,34 +31,52 @@ nodes:
     schematic:
       customization:
         extraKernelArgs:
-          - security=none # disables LSM
           - -selinux # disables selinux 1 is permissive
-          - mitigations=off
-          - sysctl.kernel.kexec_load_disabled=1 # xe load check
           - intel_iommu=on
           - iommu=pt
+          - mitigations=off
+          - security=none # disables LSM
+          - sysctl.kernel.kexec_load_disabled=1 # xe load check
           - i915.force_probe=!46a6 # disable igpu device id for i915
           - xe.force_probe=46a6 # enable igpu device id for xe
         systemExtensions:
           officialExtensions:
-#            - siderolabs/mei
-            - siderolabs/thunderbolt
             - siderolabs/i915 # note: xe takes guc from i915
-            - siderolabs/xe
             - siderolabs/intel-ucode
-#        bootloader: sd-boot
+            - siderolabs/thunderbolt
+            - siderolabs/xe
     networkInterfaces:
       - deviceSelector:
           hardwareAddr: "48:21:0b:35:a3:c7"
         dhcp: true
-        addresses:
-          - "172.16.69.11/24"
+        dhcpOptions:
+          ipv6: false
         routes:
           - network: "0.0.0.0/0"
             gateway: "172.16.69.1"
         mtu: 1500
         vip:
           ip: "172.16.69.10"
+      - mtu: 65520
+        up: true
+        addresses:
+          - 169.254.255.11/32
+        routes:
+          - network: 169.254.255.12/32
+            metric: 2048
+        deviceSelector:
+          busPath: 0-1.0
+          driver: thunderbolt-net
+      - mtu: 65520
+        up: true
+        addresses:
+          - 169.254.255.11/32
+        routes:
+          - network: 169.254.255.13/32
+            metric: 2048
+        deviceSelector:
+          busPath: 1-1.0
+          driver: thunderbolt-net
   - hostname: "k8s-02"
     ipAddress: "172.16.69.12"
     installDisk: "/dev/sda"
@@ -72,33 +90,50 @@ nodes:
     schematic:
       customization:
         extraKernelArgs:
-          - security=none # disables LSM
           - -selinux # disables selinux 1 is permissive
-          - mitigations=off
-          - sysctl.kernel.kexec_load_disabled=1 # xe load check
           - intel_iommu=on
           - iommu=pt
+          - mitigations=off
+          - security=none # disables LSM
+          - sysctl.kernel.kexec_load_disabled=1 # xe load check
           - i915.force_probe=!46a6 # disable igpu device id for i915
           - xe.force_probe=46a6 # enable igpu device id for xe
         systemExtensions:
           officialExtensions:
-#            - siderolabs/mei
-            - siderolabs/thunderbolt
             - siderolabs/i915 # note: xe takes guc from i915
-            - siderolabs/xe
             - siderolabs/intel-ucode
+            - siderolabs/thunderbolt
+            - siderolabs/xe
     networkInterfaces:
       - deviceSelector:
           hardwareAddr: "48:21:0b:3d:9e:f9"
         dhcp: true
-        addresses:
-          - "172.16.69.12/24"
         routes:
           - network: "0.0.0.0/0"
             gateway: "172.16.69.1"
         mtu: 1500
         vip:
           ip: "172.16.69.10"
+      - mtu: 65520
+        up: true
+        addresses:
+          - 169.254.255.12/32
+        routes:
+          - network: 169.254.255.11/32
+            metric: 2048
+        deviceSelector:
+          busPath: 1-1.0
+          driver: thunderbolt-net
+      - mtu: 65520
+        up: true
+        addresses:
+          - 169.254.255.12/32
+        routes:
+          - network: 169.254.255.13/32
+            metric: 2048
+        deviceSelector:
+          busPath: 0-1.0
+          driver: thunderbolt-net
   - hostname: "k8s-03"
     ipAddress: "172.16.69.13"
     installDisk: "/dev/sda"
@@ -112,33 +147,50 @@ nodes:
     schematic:
       customization:
         extraKernelArgs:
-          - security=none # disables LSM
           - -selinux # disables selinux 1 is permissive
-          - mitigations=off
-          - sysctl.kernel.kexec_load_disabled=1 # xe load check
           - intel_iommu=on
           - iommu=pt
+          - mitigations=off
+          - security=none # disables LSM
+          - sysctl.kernel.kexec_load_disabled=1 # xe load check
           - i915.force_probe=!46a6 # disable igpu device id for i915
           - xe.force_probe=46a6 # enable igpu device id for xe
         systemExtensions:
           officialExtensions:
-#            - siderolabs/mei
-            - siderolabs/thunderbolt
             - siderolabs/i915 # note: xe takes guc from i915
-            - siderolabs/xe
             - siderolabs/intel-ucode
+            - siderolabs/thunderbolt
+            - siderolabs/xe
     networkInterfaces:
       - deviceSelector:
           hardwareAddr: "48:21:0b:36:00:38"
         dhcp: true
-        addresses:
-          - "172.16.69.13/24"
         routes:
           - network: "0.0.0.0/0"
             gateway: "172.16.69.1"
         mtu: 1500
         vip:
           ip: "172.16.69.10"
+      - mtu: 65520
+        up: true
+        addresses:
+          - 169.254.255.13/32
+        routes:
+          - network: 169.254.255.11/32
+            metric: 2048
+        deviceSelector:
+          busPath: 0-1.0
+          driver: thunderbolt-net
+      - mtu: 65520
+        up: true
+        addresses:
+          - 169.254.255.13/32
+        routes:
+          - network: 169.254.255.12/32
+            metric: 2048
+        deviceSelector:
+          busPath: 1-1.0
+          driver: thunderbolt-net
 # Global patches
 patches:
   - "@./patches/global/machine-files.yaml"
