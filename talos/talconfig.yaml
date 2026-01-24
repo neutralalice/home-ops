@@ -36,7 +36,6 @@ nodes:
           - iommu=pt
           - mitigations=off
           - security=none # disables LSM
-          - sysctl.kernel.kexec_load_disabled=1 # xe load check
           - i915.force_probe=!46a6 # disable igpu device id for i915
           - xe.force_probe=46a6 # enable igpu device id for xe
         systemExtensions:
@@ -95,7 +94,6 @@ nodes:
           - iommu=pt
           - mitigations=off
           - security=none # disables LSM
-          - sysctl.kernel.kexec_load_disabled=1 # xe load check
           - i915.force_probe=!46a6 # disable igpu device id for i915
           - xe.force_probe=46a6 # enable igpu device id for xe
         systemExtensions:
@@ -152,7 +150,6 @@ nodes:
           - iommu=pt
           - mitigations=off
           - security=none # disables LSM
-          - sysctl.kernel.kexec_load_disabled=1 # xe load check
           - i915.force_probe=!46a6 # disable igpu device id for i915
           - xe.force_probe=46a6 # enable igpu device id for xe
         systemExtensions:
@@ -194,6 +191,7 @@ nodes:
 # Global patches
 patches:
   - "@./patches/global/machine-files.yaml"
+  - "@./patches/global/machine-kernel.yaml"
   - "@./patches/global/machine-kubelet.yaml"
   - "@./patches/global/machine-network.yaml"
   - "@./patches/global/machine-sysctls.yaml"
