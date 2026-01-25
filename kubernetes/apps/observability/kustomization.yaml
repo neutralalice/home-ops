@@ -4,6 +4,7 @@ kind: Kustomization
 namespace: observability
 components:
   - ../../components/flux-alerts
+  - ../../components/sops
 resources:
   - ./namespace.yaml
   - ./blackbox-exporter/ks.yaml
