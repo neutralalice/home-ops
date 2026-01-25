@@ -65,7 +65,7 @@ spec:
     route:
       app:
         hostnames:
-          - jellyfin.arita.moe
+          - jellyfin.${SECRET_DOMAIN}
         parentRefs:
           - name: envoy-internal
             namespace: network

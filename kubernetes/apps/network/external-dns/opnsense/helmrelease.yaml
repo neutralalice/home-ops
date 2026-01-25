@@ -10,8 +10,7 @@ spec:
   interval: 15m
   values:
     fullnameOverride: *app
-    domainFilters:
-      - arita.moe
+    domainFilters: ["${SECRET_DOMAIN}"]
     extraArgs:
       - --gateway-name=envoy-internal
     interval: 10m
