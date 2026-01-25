@@ -22,3 +22,60 @@ spec:
   nodeSelector:
     matchLabels:
       kubernetes.io/os: linux
+---
+apiVersion: cilium.io/v2
+kind: CiliumBGPAdvertisement
+metadata:
+  name: l3-bgp-advertisement
+  labels:
+    advertise: bgp
+spec:
+  advertisements:
+    - advertisementType: Service
+      service:
+        addresses:
+          - LoadBalancerIP
+      selector:
+        matchExpressions:
+          - {key: somekey, operator: NotIn, values: ["never-used-value"]}
+---
+apiVersion: cilium.io/v2
+kind: CiliumBGPPeerConfig
+metadata:
+  name: l3-bgp-peer-config
+spec:
+  families:
+    - afi: ipv4
+      safi: unicast
+      advertisements:
+        matchLabels:
+          advertise: bgp
+    - afi: ipv6
+      safi: unicast
+      advertisements:
+        matchLabels:
+          advertise: bgp
+---
+apiVersion: cilium.io/v2
+kind: CiliumBGPClusterConfig
+metadata:
+  name: l3-bgp-cluster-config
+spec:
+  nodeSelector:
+    matchLabels:
+      kubernetes.io/os: linux
+  bgpInstances:
+    - name: cilium
+      localASN: 64513
+      peers:
+        - name: opnsense-v4
+          peerASN: 64512
+          peerAddress: 172.16.69.1
+          peerConfigRef:
+            name: l3-bgp-peer-config
+        - name: opnsense-v6
+          peerASN: 64512
+          peerAddress: fdca:fec0:ffee:0069::1
+          peerConfigRef:
+            name: l3-bgp-peer-config
+---
