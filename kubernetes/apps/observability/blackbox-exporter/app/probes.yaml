@@ -10,7 +10,7 @@
 #  targets:
 #    staticConfig:
 #      static:
-#        - quic.arita.moe
+#        - quic.${SECRET_DOMAIN}
 ---
 apiVersion: monitoring.coreos.com/v1
 kind: Probe
@@ -23,7 +23,7 @@ spec:
   targets:
     staticConfig:
       static:
-        - https://ipv4test.arita.moe
+        - https://ipv4test.${SECRET_DOMAIN}
 ---
 apiVersion: monitoring.coreos.com/v1
 kind: Probe
@@ -36,7 +36,7 @@ spec:
   targets:
     staticConfig:
       static:
-        - https://ipv6test.arita.moe
+        - https://ipv6test.${SECRET_DOMAIN}
 ---
 apiVersion: monitoring.coreos.com/v1
 kind: Probe
