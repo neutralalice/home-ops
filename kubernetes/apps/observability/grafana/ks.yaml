@@ -30,6 +30,10 @@ spec:
   interval: 1h
   path: "./kubernetes/apps/observability/grafana/instance"
   prune: true
+  postBuild:
+    substituteFrom:
+      - name: cluster-secrets
+        kind: Secret
   sourceRef:
     kind: GitRepository
     name: flux-system
