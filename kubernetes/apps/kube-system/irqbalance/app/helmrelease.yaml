@@ -31,9 +31,9 @@ spec:
               IRQBALANCE_DEBUG: true
             resources:
               requests:
-                cpu: 10m
+                cpu: 5m
               limits:
-                memory: 32Mi
+                memory: 8Mi
             securityContext:
               privileged: true
     defaultPodOptions:
