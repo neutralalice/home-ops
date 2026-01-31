@@ -4,7 +4,7 @@ kind: Kustomization
 metadata:
   name: coredns
 spec:
-  interval: 1m
+  interval: 30m
   path: ./kubernetes/apps/kube-system/coredns/app
   postBuild:
     substituteFrom:
