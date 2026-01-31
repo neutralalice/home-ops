@@ -17,14 +17,14 @@ spec:
       create: true
     service:
       name: kube-dns
-      clusterIP: "10.43.0.10"
+      clusterIP: 10.43.0.10
       clusterIPs:
         - 10.43.0.10
-        - "fdca:fec0:ffee:43::a"
+        - fdca:fec0:ffee:43::a
       ipFamilyPolicy: PreferDualStack
       ipFamilies:
-        - "IPv4"
-        - "IPv6"
+        - IPv4
+        - IPv6
     replicaCount: 2
     servers:
       - zones:
@@ -33,32 +33,32 @@ spec:
             use_tcp: true
         port: 53
         plugins:
+          - name: autopath
+            parameters: "@kubernetes"
+          - name: cache
+            configBlock: |-
+              prefetch 20
+              serve_stale
           - name: errors
+          - name: forward
+            parameters: . /etc/resolv.conf
           - name: health
             configBlock: |-
               lameduck 5s
-          - name: ready
           - name: kubernetes
             parameters: cluster.local in-addr.arpa ip6.arpa
             configBlock: |-
               pods verified
               fallthrough in-addr.arpa ip6.arpa
-          - name: autopath
-            parameters: "@kubernetes"
-          - name: forward
-            parameters: . /etc/resolv.conf
-          - name: cache
-            configBlock: |-
-              prefetch 20
-              serve_stale
-          - name: loop
-          - name: reload
           - name: loadbalance
-          - name: prometheus
-            parameters: 0.0.0.0:9153
           - name: log
             configBlock: |-
               class error
+          - name: loop
+          - name: prometheus
+            parameters: 0.0.0.0:9153
+          - name: ready
+          - name: reload
     affinity:
       nodeAffinity:
         requiredDuringSchedulingIgnoredDuringExecution:
