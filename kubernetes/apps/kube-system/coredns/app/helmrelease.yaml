@@ -7,7 +7,7 @@ spec:
   chartRef:
     kind: OCIRepository
     name: coredns
-  interval: 1m
+  interval: 30m
   values:
     fullnameOverride: coredns
     image:
@@ -18,10 +18,10 @@ spec:
     service:
       name: kube-dns
       clusterIP: 10.43.0.10
-      clusterIPs:
-        - 10.43.0.10
-        - fdca:fec0:ffee:43::a
-      ipFamilyPolicy: PreferDualStack
+#      clusterIPs:
+#        - 10.43.0.10
+#        - fdca:fec0:ffee:43::a
+#      ipFamilyPolicy: PreferDualStack
       ipFamilies:
         - IPv4
         - IPv6
