@@ -54,10 +54,32 @@ spec:
                       - name: manager
                         resources:
                           limits:
-                            memory: 1Gi
+                            cpu: 100m
+                            memory: 256Mi
+                          requests:
+                            cpu: 10m
             target:
               kind: Deployment
               name: (kustomize-controller|helm-controller|source-controller)
+          - patch: |
+              apiVersion: apps/v1
+              kind: Deployment
+              metadata:
+                name: notification-controller
+              spec:
+                template:
+                  spec:
+                    containers:
+                      - name: manager
+                        resources:
+                          limits:
+                            cpu: 50m
+                            memory: 128Mi
+                          requests:
+                            cpu: 5m
+            target:
+              kind: Deployment
+              name: notification-controller
           - # Enable in-memory kustomize builds
             patch: |
               - op: add
