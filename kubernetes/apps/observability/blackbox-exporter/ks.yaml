@@ -2,11 +2,11 @@
 apiVersion: kustomize.toolkit.fluxcd.io/v1
 kind: Kustomization
 metadata:
-  name: blackbox-exporter
+  name: &app blackbox-exporter
 spec:
   commonMetadata:
     labels:
-      app.kubernetes.io/name: blackbox-exporter
+      app.kubernetes.io/name: *app
   interval: 1h
   path: "./kubernetes/apps/observability/blackbox-exporter/app"
   prune: true
