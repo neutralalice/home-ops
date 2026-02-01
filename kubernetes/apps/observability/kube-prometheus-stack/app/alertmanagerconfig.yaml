@@ -65,6 +65,10 @@ spec:
           title: >-
             [{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}] {{ .CommonLabels.alertname }}
           ttl: 86400s
-          token: ${ALERTMANAGER_PUSHOVER_TOKEN}
-          userKey: ${PUSHOVER_USER_KEY}
+          token:
+            name: alertmanager-secret
+            key: ${ALERTMANAGER_PUSHOVER_TOKEN}
+          userKey:
+            name: alertmanager-secret
+            key: ${PUSHOVER_USER_KEY}
           urlTitle: View in Alertmanager
