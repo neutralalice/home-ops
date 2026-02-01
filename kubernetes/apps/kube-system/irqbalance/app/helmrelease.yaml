@@ -30,10 +30,9 @@ spec:
               IRQBALANCE_BANNED_CPULIST: 8-15 # 8-15 are E-cores
               IRQBALANCE_DEBUG: true
             resources:
-              requests:
-                cpu: 5m
               limits:
                 memory: 8Mi
+                cpu: 5m
             securityContext:
               privileged: true
     defaultPodOptions:
