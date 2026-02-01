@@ -67,8 +67,8 @@ spec:
           ttl: 86400s
           token:
             name: alertmanager-secret
-            key: ${ALERTMANAGER_PUSHOVER_TOKEN}
+            key: ALERTMANAGER_PUSHOVER_TOKEN
           userKey:
             name: alertmanager-secret
-            key: ${PUSHOVER_USER_KEY}
+            key: PUSHOVER_USER_KEY
           urlTitle: View in Alertmanager
