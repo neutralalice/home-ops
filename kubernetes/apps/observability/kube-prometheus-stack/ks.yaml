@@ -17,8 +17,6 @@ spec:
     substituteFrom:
       - name: cluster-secrets
         kind: Secret
-      - name: alertmanager-secrets
-        kind: Secret
   sourceRef:
     kind: GitRepository
     name: flux-system

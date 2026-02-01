@@ -6,5 +6,4 @@ resources:
   - ./helm-release.yaml
   - ./grafanadashboard.yaml
   - ./alertmanagerconfig.yaml
-  - ./secret.sops.yaml
   - ./scrapeconfig.yaml
