@@ -32,7 +32,7 @@ spec:
             resources:
               limits:
                 memory: 8Mi
-                cpu: 5m
+                cpu: 10m
             securityContext:
               privileged: true
     defaultPodOptions:
