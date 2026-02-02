@@ -35,6 +35,7 @@ nodes:
           - intel_iommu=on
           - iommu=pt
           - mitigations=off
+          - net.ifnames=0
           - security=none # disables LSM
           - i915.force_probe=!46a6 # disable igpu device id for i915
           - xe.force_probe=46a6 # enable igpu device id for xe
@@ -93,6 +94,7 @@ nodes:
           - intel_iommu=on
           - iommu=pt
           - mitigations=off
+          - net.ifnames=0
           - security=none # disables LSM
           - i915.force_probe=!46a6 # disable igpu device id for i915
           - xe.force_probe=46a6 # enable igpu device id for xe
@@ -149,6 +151,7 @@ nodes:
           - intel_iommu=on
           - iommu=pt
           - mitigations=off
+          - net.ifnames=0
           - security=none # disables LSM
           - i915.force_probe=!46a6 # disable igpu device id for i915
           - xe.force_probe=46a6 # enable igpu device id for xe
