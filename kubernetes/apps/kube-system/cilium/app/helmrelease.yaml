@@ -71,10 +71,10 @@ spec:
       serviceMonitor:
         enabled: true
         trustCRDsExist: true
-    resources: # for guaranteed qos
+    resources:
       limits:
         cpu: 500m
-        memory: 512Mi
+        memory: 768Mi
     rollOutCiliumPods: true
     routingMode: native
     securityContext:
