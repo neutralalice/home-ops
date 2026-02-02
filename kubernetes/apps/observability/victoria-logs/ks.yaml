@@ -10,6 +10,10 @@ spec:
   interval: 1h
   path: ./kubernetes/apps/observability/victoria-logs/app
   prune: true
+  postBuild:
+    substituteFrom:
+      - name: cluster-secrets
+        kind: Secret
   sourceRef:
     kind: GitRepository
     name: flux-system
