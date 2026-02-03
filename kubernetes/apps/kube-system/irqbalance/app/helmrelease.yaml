@@ -32,7 +32,8 @@ spec:
             resources:
               limits:
                 memory: 8Mi
-                cpu: 30m
+              requests:
+                cpu: 20m
             securityContext:
               privileged: true
     defaultPodOptions:
