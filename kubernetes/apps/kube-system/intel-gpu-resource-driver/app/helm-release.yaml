@@ -12,9 +12,3 @@ spec:
     cdi:
       staticPath: /var/cdi/static
       dynamicPath: /var/cdi/dynamic
-    resources:
-      limits:
-        memory: 256Mi
-      requests:
-        cpu: 20m
-        memory: 256Mi
