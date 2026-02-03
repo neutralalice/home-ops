@@ -80,6 +80,10 @@ spec:
         serviceMonitor:
           enabled: true
       replicas: 1
+      resources:
+        limits:
+          cpu: 1000m
+          memory: 300Mi
       rollOutPods: true
     prometheus:
       enabled: true
