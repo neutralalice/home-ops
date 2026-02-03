@@ -17,8 +17,10 @@ spec:
           resources:
             requests:
               cpu: 100m
+              memory: 1024Mi
             limits:
-              memory: 1Gi
+              cpu: 100m
+              memory: 1024Mi
       envoyService:
         externalTrafficPolicy: Cluster
   shutdown:
