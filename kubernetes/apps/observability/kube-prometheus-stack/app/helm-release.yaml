@@ -91,7 +91,7 @@ spec:
           memory: 64Mi
       service:
         ipDualStack:
-          enabled: true
+          enabled: false
     prometheusOperator:
       resources:
         limits:
