@@ -16,9 +16,19 @@ spec:
       masquerade: true
       # Ref: https://github.com/siderolabs/talos/issues/10002
       hostLegacyRouting: true
+    cgroup:
+      autoMount:
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 100Mi
     cni:
       # Required for pairing with Multus CNI
       exclusive: false
+      resources:
+        limits:
+          cpu: 1000m
+          memory: 100Mi
     cgroup:
       automount:
         enabled: false
@@ -36,6 +46,10 @@ spec:
       enabled: false
     hubble:
       enabled: false
+    initResources:
+      limits:
+        cpu: 1000m
+        memory: 100Mi
     ipam:
       mode: kubernetes
     ipv4:
