@@ -14,3 +14,9 @@ spec:
       enabled: true
     prometheusRules:
       enabled: false
+    resources:
+      limits:
+        memory: 64Mi
+      requests:
+        cpu: 100m
+        memory: 64Mi
