@@ -57,10 +57,18 @@ spec:
       resources:
         mgr:
           limits:
-            memory: 2Gi
+            cpu: 300m
+            memory: 2048Mi
+          requests:
+            cpu: 300m
+            memory: 2048Mi
         osd:
           limits:
-            memory: 8Gi
+            cpu: 1000m
+            memory: 8192Mi
+          requests:
+            cpu: 1000m
+            memory: 8192Mi
       storage:
         useAllNodes: true
         useAllDevices: false
@@ -123,9 +131,10 @@ spec:
                       app.kubernetes.io/part-of: *cephFileSystemName
             resources:
               requests:
-                cpu: 100m
-                memory: 1Gi
+                cpu: 500m
+                memory: 4Gi
               limits:
+                cpu: 500m
                 memory: 4Gi
         storageClass:
           enabled: true
