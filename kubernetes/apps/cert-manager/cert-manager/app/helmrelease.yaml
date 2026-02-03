@@ -9,6 +9,13 @@ spec:
     name: cert-manager
   interval: 1h
   values:
+    cainjector:
+      resources:
+        limits:
+          memory: 256Mi
+        requests:
+          cpu: 20m
+          memory: 256Mi
     crds:
       enabled: true
     replicaCount: 1
@@ -18,3 +25,16 @@ spec:
       enabled: true
       servicemonitor:
         enabled: true
+    resources:
+      limits:
+        memory: 128Mi
+      requests:
+        cpu: 20m
+        memory: 128Mi
+    webhook:
+      resources:
+        limits:
+          memory: 128Mi
+        requests:
+          cpu: 20m
+          memory: 128Mi
