@@ -24,6 +24,12 @@ spec:
         alertmanagerConfiguration:
           name: alertmanager
         externalUrl: https://alertmanager.${SECRET_DOMAIN}
+        resources:
+          limits:
+            memory: 96Mi
+          requests:
+            cpu: 20Mi
+            memory: 96Mi
         storage:
           volumeClaimTemplate:
             spec:
