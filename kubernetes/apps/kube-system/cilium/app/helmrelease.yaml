@@ -17,7 +17,7 @@ spec:
       # Ref: https://github.com/siderolabs/talos/issues/10002
       hostLegacyRouting: true
     cgroup:
-      automount:
+      autoMount:
         enabled: false
         resources:
           limits:
@@ -29,6 +29,9 @@ spec:
       exclusive: false
       resources:
         limits:
+          cpu: 1000m
+          memory: 100Mi
+        requests:
           cpu: 1000m
           memory: 100Mi
     # NOTE: devices might need to be set if you have more than one active NIC on your hosts
