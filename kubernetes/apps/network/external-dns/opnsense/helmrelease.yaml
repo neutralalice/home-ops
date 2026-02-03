@@ -58,9 +58,10 @@ spec:
     resources:
       requests:
         cpu: 58m
-        memory: 128Mi
+        memory: 256Mi
       limits:
-        memory: 128Mi
+        cpu: 58m
+        memory: 256Mi
     serviceMonitor:
       enabled: true
     podAnnotations:
