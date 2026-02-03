@@ -17,11 +17,13 @@ spec:
       # Ref: https://github.com/siderolabs/talos/issues/10002
       hostLegacyRouting: true
     cgroup:
-      autoMount:
+      automount:
+        enabled: false
         resources:
           limits:
             cpu: 1000m
             memory: 100Mi
+      hostRoot: /sys/fs/cgroup
     cni:
       # Required for pairing with Multus CNI
       exclusive: false
@@ -29,10 +31,6 @@ spec:
         limits:
           cpu: 1000m
           memory: 100Mi
-    cgroup:
-      automount:
-        enabled: false
-      hostRoot: /sys/fs/cgroup
     # NOTE: devices might need to be set if you have more than one active NIC on your hosts
     # devices: eno+ eth+
     dashboards:
