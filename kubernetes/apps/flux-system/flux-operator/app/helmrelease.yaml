@@ -15,6 +15,7 @@ spec:
         memory: 512Mi
       requests:
         cpu: 20m
+        memory: 512Mi
     serviceMonitor:
       create: true
     web:
