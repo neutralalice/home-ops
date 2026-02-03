@@ -73,7 +73,7 @@ spec:
         trustCRDsExist: true
     resources:
       limits:
-        cpu: 500m
+        cpu: 1000m
         memory: 768Mi
     rollOutCiliumPods: true
     routingMode: native
