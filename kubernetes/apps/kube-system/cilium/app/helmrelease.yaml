@@ -18,7 +18,7 @@ spec:
       hostLegacyRouting: true
     cgroup:
       autoMount:
-        enabled: false
+        enabled: true
         resources:
           limits:
             cpu: 100m
