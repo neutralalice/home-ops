@@ -21,7 +21,7 @@ spec:
         enabled: false
         resources:
           limits:
-            cpu: 1000m
+            cpu: 100m
             memory: 100Mi
       hostRoot: /sys/fs/cgroup
     cni:
@@ -29,10 +29,10 @@ spec:
       exclusive: false
       resources:
         limits:
-          cpu: 1000m
+          cpu: 100m
           memory: 100Mi
         requests:
-          cpu: 1000m
+          cpu: 100m
           memory: 100Mi
     # NOTE: devices might need to be set if you have more than one active NIC on your hosts
     # devices: eno+ eth+
