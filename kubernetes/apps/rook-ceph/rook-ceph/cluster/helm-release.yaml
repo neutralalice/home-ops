@@ -57,10 +57,10 @@ spec:
       resources:
         mgr:
           limits:
-            cpu: 300m
+            cpu: 500m
             memory: 2048Mi
           requests:
-            cpu: 300m
+            cpu: 500m
             memory: 2048Mi
         osd:
           limits:
