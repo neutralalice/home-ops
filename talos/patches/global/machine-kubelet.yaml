@@ -2,7 +2,7 @@ machine:
   kubelet:
     extraConfig:
       cpuManagerPolicy: static
-      reservedSystemCPUs: 0-3
+      reservedSystemCPUs: 0-1
       imageGCHighThresholdPercent: 70
       imageGCLowThresholdPercent: 50
       serializeImagePulls: false
