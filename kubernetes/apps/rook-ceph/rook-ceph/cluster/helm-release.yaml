@@ -74,7 +74,7 @@ spec:
             cpu: 250m
             memory: 128Mi
           requests:
-            cpu: 250m
+            cpu: 999m
             memory: 128Mi
         logcollector:
           limits:
@@ -92,10 +92,10 @@ spec:
             memory: 2048Mi
         mgr-sidecar:
           limits:
-            cpu: 400m
+            cpu: 100m
             memory: 100Mi
           requests:
-            cpu: 400m
+            cpu: 999m
             memory: 100Mi
         mon:
           limits:
