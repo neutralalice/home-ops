@@ -41,6 +41,12 @@ spec:
       service:
         selector:
           component: kube-apiserver # etcd runs on control plane nodes
+    kubelet:
+      serviceMonitor:
+        cAdvisorMetricRelabelings:
+          - sourceLabels: [__name__]
+            action: keep
+            regex: 'container_cpu_(cfs_throttled_seconds_total|load_average_10s|system_seconds_total|user_seconds_total)'
     kubeProxy:
       enabled: false
     nodeExporter:
