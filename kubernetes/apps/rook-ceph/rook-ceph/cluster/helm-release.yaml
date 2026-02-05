@@ -64,17 +64,17 @@ spec:
             memory: 1024Mi
         crashcollector:
           limits:
-            cpu: 100m
+            cpu: 200m
             memory: 64Mi
           requests:
-            cpu: 100m
+            cpu: 200m
             memory: 64Mi
         exporter:
           limits:
-            cpu: 50m
+            cpu: 250m
             memory: 128Mi
           requests:
-            cpu: 50m
+            cpu: 250m
             memory: 128Mi
         logcollector:
           limits:
@@ -92,10 +92,10 @@ spec:
             memory: 2048Mi
         mgr-sidecar:
           limits:
-            cpu: 100m
+            cpu: 400m
             memory: 100Mi
           requests:
-            cpu: 100m
+            cpu: 400m
             memory: 100Mi
         mon:
           limits:
