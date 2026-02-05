@@ -1,9 +1,11 @@
 machine:
   kubelet:
     extraConfig:
-      serializeImagePulls: false
+      cpuManagerPolicy: static
+      reservedSystemCPUs: 0-3
       imageGCHighThresholdPercent: 70
       imageGCLowThresholdPercent: 50
+      serializeImagePulls: false
     nodeIP:
       validSubnets:
         - 172.16.69.0/24
