@@ -27,7 +27,7 @@ nodes:
       useUKI: true
       secureboot: false
     controlPlane: true
-    talosImageURL: factory.talos.dev/metal-installer/3763bf805a3d1e8835fc422327982830168f7556d24491ed038adc43cc1b12f0
+    talosImageURL: factory.talos.dev/metal-installer/e4c628b8b7363b7a538b28ed35fa61898ce64b537ad44b4b910e74bdefc0662a
     schematic:
       customization:
         extraKernelArgs:
@@ -35,7 +35,6 @@ nodes:
           - intel_iommu=on
           - iommu=pt
           - mitigations=off
-          - net.ifnames=0
           - security=none # disables LSM
           - i915.force_probe=!46a6 # disable igpu device id for i915
           - xe.force_probe=46a6 # enable igpu device id for xe
@@ -86,7 +85,7 @@ nodes:
       useUKI: true
       secureboot: false
     controlPlane: true
-    talosImageURL: factory.talos.dev/metal-installer/3763bf805a3d1e8835fc422327982830168f7556d24491ed038adc43cc1b12f0
+    talosImageURL: factory.talos.dev/metal-installer/e4c628b8b7363b7a538b28ed35fa61898ce64b537ad44b4b910e74bdefc0662a
     schematic:
       customization:
         extraKernelArgs:
@@ -94,7 +93,6 @@ nodes:
           - intel_iommu=on
           - iommu=pt
           - mitigations=off
-          - net.ifnames=0
           - security=none # disables LSM
           - i915.force_probe=!46a6 # disable igpu device id for i915
           - xe.force_probe=46a6 # enable igpu device id for xe
@@ -143,7 +141,7 @@ nodes:
       useUKI: true
       secureboot: false
     controlPlane: true
-    talosImageURL: factory.talos.dev/metal-installer/3763bf805a3d1e8835fc422327982830168f7556d24491ed038adc43cc1b12f0
+    talosImageURL: factory.talos.dev/metal-installer/e4c628b8b7363b7a538b28ed35fa61898ce64b537ad44b4b910e74bdefc0662a
     schematic:
       customization:
         extraKernelArgs:
@@ -151,7 +149,6 @@ nodes:
           - intel_iommu=on
           - iommu=pt
           - mitigations=off
-          - net.ifnames=0
           - security=none # disables LSM
           - i915.force_probe=!46a6 # disable igpu device id for i915
           - xe.force_probe=46a6 # enable igpu device id for xe
