@@ -71,10 +71,10 @@ spec:
             memory: 64Mi
         exporter:
           limits:
-            cpu: 250m
+            cpu: 999m
             memory: 128Mi
           requests:
-            cpu: 999m
+            cpu: 250m
             memory: 128Mi
         logcollector:
           limits:
@@ -92,10 +92,10 @@ spec:
             memory: 2048Mi
         mgr-sidecar:
           limits:
-            cpu: 100m
+            cpu: 999m
             memory: 100Mi
           requests:
-            cpu: 999m
+            cpu: 100m
             memory: 100Mi
         mon:
           limits:
