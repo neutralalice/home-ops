@@ -64,10 +64,10 @@ spec:
             memory: 1024Mi
         crashcollector:
           limits:
-            cpu: 50m
+            cpu: 1000m
             memory: 64Mi
           requests:
-            cpu: 50m
+            cpu: 5m
             memory: 64Mi
         exporter:
           limits:
