@@ -112,9 +112,6 @@ spec:
             cpu: 1000m
             memory: 8192Mi
         prepareosd:
-          limits:
-            cpu: 500m
-            memory: 50Mi
           requests:
             cpu: 500m
             memory: 50Mi
