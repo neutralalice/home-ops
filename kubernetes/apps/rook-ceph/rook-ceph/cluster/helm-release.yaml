@@ -85,17 +85,17 @@ spec:
             memory: 512Mi
         mgr:
           limits:
-            cpu: 1000m
+            cpu: 2000m
             memory: 2048Mi
           requests:
-            cpu: 1000m
+            cpu: 100m
             memory: 2048Mi
         mgr-sidecar:
           limits:
             cpu: 1000m
             memory: 100Mi
           requests:
-            cpu: 100m
+            cpu: 70m
             memory: 100Mi
         mon:
           limits:
