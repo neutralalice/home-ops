@@ -64,17 +64,17 @@ spec:
             memory: 1024Mi
         crashcollector:
           limits:
-            cpu: 200m
+            cpu: 50m
             memory: 64Mi
           requests:
-            cpu: 200m
+            cpu: 50m
             memory: 64Mi
         exporter:
           limits:
-            cpu: 999m
+            cpu: 1000m
             memory: 128Mi
           requests:
-            cpu: 250m
+            cpu: 40m
             memory: 128Mi
         logcollector:
           limits:
@@ -112,6 +112,9 @@ spec:
             cpu: 1000m
             memory: 8192Mi
         prepareosd:
+          limits:
+            cpu: 500m
+            memory: 50Mi
           requests:
             cpu: 500m
             memory: 50Mi
