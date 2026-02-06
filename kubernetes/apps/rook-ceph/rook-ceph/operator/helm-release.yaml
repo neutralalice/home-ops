@@ -20,9 +20,9 @@ spec:
     monitoring:
       enabled: true
     resources:
-      requests:
-        cpu: 20m
-        memory: 256Mi
       limits:
-        cpu: 999m
+        cpu: 1000m
+        memory: 256Mi
+      requests:
+        cpu: 500m
         memory: 256Mi
