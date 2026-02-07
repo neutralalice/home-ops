@@ -92,7 +92,7 @@ spec:
             memory: 2048Mi
         mgr-sidecar:
           limits:
-            cpu: 1000m
+            cpu: 2000m
             memory: 100Mi
           requests:
             cpu: 40m
