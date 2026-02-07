@@ -26,6 +26,13 @@ spec:
         - IPv4
         - IPv6
     replicaCount: 2
+    resources:
+      limits:
+        cpu: 200m
+        memory: 128Mi
+      requests:
+        cpu: 40m
+        memory: 128Mi
     servers:
       - zones:
           - zone: .
