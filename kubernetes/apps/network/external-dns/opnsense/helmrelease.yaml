@@ -57,17 +57,17 @@ spec:
           timeoutSeconds: 5
         resources:
           limits:
-            cpu: 58m
+            cpu: 2000m
             memory: 128Mi
           requests:
-            cpu: 58m
+            cpu: 8m
             memory: 128Mi
     resources:
-      requests:
-        cpu: 58m
-        memory: 256Mi
       limits:
-        cpu: 58m
+        cpu: 2000m
+        memory: 256Mi
+      requests:
+        cpu: 8m
         memory: 256Mi
     serviceMonitor:
       enabled: true
