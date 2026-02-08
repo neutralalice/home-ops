@@ -63,7 +63,7 @@ spec:
           http:
             port: *port
     serviceMonitor:
-      cloudflare-runnel:
+      cloudflare-tunnel:
         endpoints:
           - port: http
     configMaps:
