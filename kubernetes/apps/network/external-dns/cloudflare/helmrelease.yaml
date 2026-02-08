@@ -9,8 +9,7 @@ spec:
     name: cloudflare-dns
   interval: 1h
   values:
-    fullnameOverride: *app
-    provider: cloudflare
+    domainFilters: ["${SECRET_DOMAIN}"]
     env:
       - name: CF_API_TOKEN
         valueFrom:
@@ -23,14 +22,23 @@ spec:
       - --crd-source-apiversion=externaldns.k8s.io/v1alpha1
       - --crd-source-kind=DNSEndpoint
       - --gateway-name=envoy-external
+    fullnameOverride: *app
     interval: 5m
-    triggerLoopOnEvent: true
-    policy: sync
-    sources: ["crd", "gateway-httproute"]
-    txtPrefix: k8s.
-    txtOwnerId: default
-    domainFilters: ["${SECRET_DOMAIN}"]
-    serviceMonitor:
-      enabled: true
     podAnnotations:
       secret.reloader.stakater.com/reload: *secret
+    policy: sync
+    provider:
+      name: cloudflare
+    resources:
+      limits:
+        cpu: 2000m
+        memory: 256Mi
+      requests:
+        cpu: 8m
+        memory: 256Mi
+    serviceMonitor:
+      enabled: true
+    sources: ["crd", "gateway-httproute"]
+    triggerLoopOnEvent: true
+    txtOwnerId: default
+    txtPrefix: k8s.
