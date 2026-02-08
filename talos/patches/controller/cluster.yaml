@@ -8,10 +8,10 @@ cluster:
       enable-aggregator-routing: true
     resources:
       limits:
-        cpu: 1000m
+        cpu: 2000m
         memory: 2048Mi
       requests:
-        cpu: 100m
+        cpu: 250m
         memory: 2048Mi
   controllerManager:
     extraArgs:
@@ -19,10 +19,10 @@ cluster:
       node-cidr-mask-size-ipv6: "112"
     resources:
       limits:
-        cpu: 100m
+        cpu: 1000m
         memory: 512Mi
       requests:
-        cpu: 100m
+        cpu: 40m
         memory: 512Mi
   coreDNS:
     disabled: true
@@ -38,9 +38,9 @@ cluster:
       bind-address: 0.0.0.0
     resources:
       limits:
-        cpu: 100m
+        cpu: 1000m
         memory: 128Mi
       requests:
-        cpu: 100m
+        cpu: 16m
         memory: 128Mi
 
