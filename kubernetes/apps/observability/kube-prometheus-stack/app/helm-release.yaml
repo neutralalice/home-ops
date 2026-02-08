@@ -113,7 +113,7 @@ spec:
           cpu: 2000m
           memory: 48Mi
         requests:
-          cpu: 10m
+          cpu: 8m
           memory: 48Mi
       service:
         ipDualStack:
