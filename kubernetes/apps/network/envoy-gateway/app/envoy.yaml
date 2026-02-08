@@ -15,11 +15,11 @@ spec:
         container:
           imageRepository: mirror.gcr.io/envoyproxy/envoy
           resources:
-            requests:
-              cpu: 200m
-              memory: 512Mi
             limits:
-              cpu: 200m
+              cpu: 2000m
+              memory: 512Mi
+            requests:
+              cpu: 40m
               memory: 512Mi
         patch:
           type: StrategicMerge
