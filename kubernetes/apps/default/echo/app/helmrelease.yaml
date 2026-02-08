@@ -13,7 +13,7 @@ spec:
       echo:
         strategy: RollingUpdate
         containers:
-          app:
+          echo:
             image:
               repository: ghcr.io/mendhak/http-https-echo
               tag: 38
@@ -40,9 +40,11 @@ spec:
               readOnlyRootFilesystem: true
               capabilities: { drop: ["ALL"] }
             resources:
-              requests:
-                cpu: 10m
               limits:
+                cpu: 2000m
+                memory: 64Mi
+              requests:
+                cpu: 5m
                 memory: 64Mi
     defaultPodOptions:
       securityContext:
@@ -50,16 +52,16 @@ spec:
         runAsUser: 65534
         runAsGroup: 65534
     service:
-      app:
+      echo:
         ports:
           http:
             port: *port
     serviceMonitor:
-      app:
+      echo:
         endpoints:
           - port: http
     route:
-      app:
+      echo:
         hostnames: ["{{ .Release.Name }}.${SECRET_DOMAIN}"]
         parentRefs:
           - name: envoy-external
@@ -67,5 +69,5 @@ spec:
             sectionName: https
         rules:
           - backendRefs:
-              - identifier: app
+              - identifier: echo
                 port: *port
