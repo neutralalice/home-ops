@@ -1,13 +1,12 @@
 {
   $schema: "https://docs.renovatebot.com/renovate-schema.json",
   extends: [
-    "config:best-practices",
+    "config:recommended",
     "docker:enableMajor",
     "security:openssf-scorecard",
     ":automergeBranch",
     ":automergeDigest",
     ":disableRateLimiting",
-    ":dependencyDashboard",
     ":semanticCommits",
     "github>neutralalice/home-ops//.github/renovate/automerge.json5",
     "github>neutralalice/home-ops//.github/renovate/changelogs.json5",
