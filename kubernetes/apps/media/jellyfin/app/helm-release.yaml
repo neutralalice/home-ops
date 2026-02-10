@@ -42,6 +42,7 @@ spec:
               claims:
                 - name: gpu
               limits:
+                cpu: 8000m
                 memory: 6144Mi
               requests:
                 cpu: 400m
