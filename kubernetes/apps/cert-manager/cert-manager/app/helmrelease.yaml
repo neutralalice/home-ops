@@ -12,9 +12,10 @@ spec:
     cainjector:
       resources:
         limits:
+          cpu: 2000m
           memory: 256Mi
         requests:
-          cpu: 20m
+          cpu: 15m
           memory: 256Mi
     crds:
       enabled: true
@@ -27,14 +28,16 @@ spec:
         enabled: true
     resources:
       limits:
+        cpu: 2000m
         memory: 128Mi
       requests:
-        cpu: 20m
+        cpu: 15m
         memory: 128Mi
     webhook:
       resources:
         limits:
+          cpu: 2000m
           memory: 128Mi
         requests:
-          cpu: 20m
+          cpu: 15m
           memory: 128Mi
