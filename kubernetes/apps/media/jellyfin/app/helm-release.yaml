@@ -11,14 +11,6 @@ spec:
   values:
     controllers:
       jellyfin:
-        pod:
-          resources:
-            limits:
-              cpu: 8000m
-              memory: 6144Mi
-            requests:
-              cpu: 400m
-              memory: 6144Mi
         containers:
           app:
             image:
@@ -49,6 +41,14 @@ spec:
             resources:
               claims:
                 - name: gpu
+        pod:
+          resources:
+            limits:
+              cpu: 8000m
+              memory: 6144Mi
+            requests:
+              cpu: 400m
+              memory: 6144Mi
     defaultPodOptions:
       resourceClaims:
         - name: gpu
@@ -59,11 +59,6 @@ spec:
         runAsGroup: 1000
         fsGroup: 1000
         fsGroupChangePolicy: OnRootMismatch
-    service:
-      app:
-        ports:
-          http:
-            port: *port
     route:
       app:
         hostnames:
@@ -72,6 +67,11 @@ spec:
           - name: envoy-internal
             namespace: network
             sectionName: https
+    service:
+      app:
+        ports:
+          http:
+            port: *port
     persistence:
       config:
         existingClaim: jellyfin-config
