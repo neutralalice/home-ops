@@ -65,7 +65,7 @@ spec:
         fsGroupChangePolicy: OnRootMismatch
     persistence:
       config:
-        existingClaim: ${APP}
+        existingClaim: qbittorrent-config
       scratch:
         enabled: true
         type: nfs
