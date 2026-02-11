@@ -11,6 +11,14 @@ spec:
   values:
     controllers:
       jellyfin:
+        pod:
+          resources:
+            limits:
+              cpu: 8000m
+              memory: 6144Mi
+            requests:
+              cpu: 400m
+              memory: 6144Mi
         containers:
           app:
             image:
@@ -41,12 +49,6 @@ spec:
             resources:
               claims:
                 - name: gpu
-              limits:
-                cpu: 8000m
-                memory: 6144Mi
-              requests:
-                cpu: 400m
-                memory: 6144Mi
     defaultPodOptions:
       resourceClaims:
         - name: gpu
