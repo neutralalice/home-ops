@@ -86,13 +86,6 @@ spec:
             - name: envoy-internal
               namespace: network
       prometheusSpec:
-        configReloaderResources:
-          limits:
-            cpu: 1000m
-            memory: 48Mi
-          requests:
-            cpu: 10m
-            memory: 48Mi
         externalUrl: https://prometheus.${SECRET_DOMAIN}
         podMonitorSelectorNilUsesHelmValues: false
         probeSelectorNilUsesHelmValues: false
