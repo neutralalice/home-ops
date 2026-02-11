@@ -19,7 +19,6 @@ spec:
   values:
     controllers:
       fstrim:
-        type: daemonset
         containers:
           app:
             image:
@@ -29,15 +28,17 @@ spec:
               # See: https://gist.github.com/gavinmcfall/ea6cb1233d3a300e9f44caf65a32d519
               IRQBALANCE_BANNED_CPULIST: 8-15 # 8-15 are E-cores
               IRQBALANCE_DEBUG: false
-            resources:
-              limits:
-                cpu: 1000m
-                memory: 8Mi
-              requests:
-                cpu: 20m
-                memory: 8Mi
             securityContext:
               privileged: true
+        pod:
+          resources:
+            limits:
+              cpu: 1000m
+              memory: 8Mi
+            requests:
+              cpu: 20m
+              memory: 8Mi
+        type: daemonset
     defaultPodOptions:
       hostIPC: true
       hostPID: true
