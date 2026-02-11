@@ -86,12 +86,26 @@ spec:
             - name: envoy-internal
               namespace: network
       prometheusSpec:
+        configReloaderResources:
+          limits:
+            cpu: 1000m
+            memory: 48Mi
+          requests:
+            cpu: 10m
+            memory: 48Mi
         externalUrl: https://prometheus.${SECRET_DOMAIN}
         podMonitorSelectorNilUsesHelmValues: false
         probeSelectorNilUsesHelmValues: false
         ruleSelectorNilUsesHelmValues: false
         scrapeConfigSelectorNilUsesHelmValues: false
         serviceMonitorSelectorNilUsesHelmValues: false
+        storageSpec:
+          volumeClaimTemplate:
+            spec:
+              storageClassName: ceph-block
+              resources:
+                requests:
+                  storage: 50Gi
         retention: 14d
         retentionSize: 47GB
         resources:
@@ -101,13 +115,6 @@ spec:
           requests:
             cpu: 160m
             memory: 2000Mi
-        storageSpec:
-          volumeClaimTemplate:
-            spec:
-              storageClassName: ceph-block
-              resources:
-                requests:
-                  storage: 50Gi
     prometheus-node-exporter:
       fullnameOverride: node-exporter
       resources:
