@@ -20,7 +20,7 @@ spec:
           cpu: 2000m
           memory: 768Mi
         requests:
-          cpu: 100m
+          cpu: 80m
           memory: 768Mi
       retentionPeriod: 14d
       route:
