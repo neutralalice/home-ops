@@ -4,13 +4,13 @@ kind: HelmRelease
 metadata:
   name: irqbalance
 spec:
-  interval: 30m
   chartRef:
     kind: OCIRepository
     name: app-template
   install:
     remediation:
       retries: 3
+  interval: 30m
   upgrade:
     cleanupOnFail: true
     remediation:
@@ -21,13 +21,13 @@ spec:
       fstrim:
         containers:
           app:
-            image:
-              repository: ghcr.io/home-operations/irqbalance
-              tag: 1.9.4@sha256:6cc768c3f074c221412d56b341a19c8432f9a6d76eda0b346285f9c5e2d3b2cc
             env:
               # See: https://gist.github.com/gavinmcfall/ea6cb1233d3a300e9f44caf65a32d519
               IRQBALANCE_BANNED_CPULIST: 8-15 # 8-15 are E-cores
               IRQBALANCE_DEBUG: false
+            image:
+              repository: ghcr.io/home-operations/irqbalance
+              tag: 1.9.4@sha256:6cc768c3f074c221412d56b341a19c8432f9a6d76eda0b346285f9c5e2d3b2cc
             securityContext:
               privileged: true
         pod:
