@@ -47,6 +47,9 @@ spec:
                 cpu: 5m
                 memory: 72Mi
     defaultPodOptions:
+      resources:
+        limits:
+          cpu: 8000m
       securityContext:
         runAsNonRoot: true
         runAsUser: 65534
