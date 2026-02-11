@@ -92,7 +92,7 @@ spec:
     route:
       app:
         hostnames:
-          - "torrent.${SECRET_DOMAIN}"
+          - torrent.${SECRET_DOMAIN}
         parentRefs:
           - name: envoy-internal
             namespace: network
