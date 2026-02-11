@@ -59,19 +59,6 @@ spec:
         runAsGroup: 1000
         fsGroup: 1000
         fsGroupChangePolicy: OnRootMismatch
-    route:
-      app:
-        hostnames:
-          - jellyfin.${SECRET_DOMAIN}
-        parentRefs:
-          - name: envoy-internal
-            namespace: network
-            sectionName: https
-    service:
-      app:
-        ports:
-          http:
-            port: *port
     persistence:
       config:
         existingClaim: jellyfin-config
@@ -102,3 +89,16 @@ spec:
                 subPath: log
               - path: /tmp
                 subPath: tmp
+    route:
+      app:
+        hostnames:
+          - jellyfin.${SECRET_DOMAIN}
+        parentRefs:
+          - name: envoy-internal
+            namespace: network
+            sectionName: https
+    service:
+      app:
+        ports:
+          http:
+            port: *port
