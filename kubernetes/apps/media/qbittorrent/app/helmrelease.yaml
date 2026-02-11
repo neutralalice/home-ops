@@ -73,13 +73,6 @@ spec:
         path: /volume1/torrent
         globalMounts:
           - path: /media
-      scratch:
-        enabled: true
-        type: nfs
-        server: 172.16.69.17
-        path: /volume1/scratch
-        globalMounts:
-          - path: /scratch
       tmpfs:
         type: emptyDir
         advancedMounts:
