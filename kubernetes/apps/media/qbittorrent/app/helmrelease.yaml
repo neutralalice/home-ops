@@ -11,8 +11,6 @@ spec:
   values:
     controllers:
       qbittorrent:
-        annotations:
-          reloader.stakater.com/auto: "true"
         containers:
           app:
             image:
@@ -78,8 +76,6 @@ spec:
         advancedMounts:
           qbittorrent:
             app:
-              - path: /config/qBittorrent/logs
-                subPath: logs
               - path: /tmp
                 subPath: tmp
     route:
