@@ -54,7 +54,7 @@ spec:
                       - name: manager
                         resources:
                           limits:
-                            cpu: 2000m
+                            cpu: 3000m
                             memory: 256Mi
                           requests:
                             cpu: 20m
@@ -74,7 +74,7 @@ spec:
                       - name: manager
                         resources:
                           limits:
-                            cpu: 2000m
+                            cpu: 3000m
                             memory: 128Mi
                           requests:
                             cpu: 20m
