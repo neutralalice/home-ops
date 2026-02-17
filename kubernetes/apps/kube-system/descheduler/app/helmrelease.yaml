@@ -66,6 +66,13 @@ spec:
                 - RemovePodsViolatingInterPodAntiAffinity
                 - RemovePodsViolatingNodeAffinity
                 - RemovePodsViolatingNodeTaints
+    resources:
+      limits:
+        cpu: 1000m
+        memory: 256Mi
+      requests:
+        cpu: 20m
+        memory: 256Mi
     service:
       enabled: true
     serviceMonitor:
