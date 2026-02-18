@@ -112,9 +112,12 @@ spec:
             cpu: 1000m
             memory: 8192Mi
         prepareosd:
+          limits:
+            cpu: 2000m
+            memory: 128Mi
           requests:
             cpu: 500m
-            memory: 50Mi
+            memory: 128Mi
       storage:
         useAllNodes: true
         useAllDevices: false
