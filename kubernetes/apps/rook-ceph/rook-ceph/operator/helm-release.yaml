@@ -10,6 +10,16 @@ spec:
   interval: 30m
   releaseName: rook-ceph
   values:
+    ceph-csi-operator:
+      controllerManager:
+        manager:
+          resources:
+            limits:
+              cpu: 1000m
+              memory: 128Mi
+            requests:
+              cpu: 10m
+              memory: 128Mi
     csi:
       cephFSKernelMountOptions: ms_mode=prefer-crc
       enableLiveness: true
