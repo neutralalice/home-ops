@@ -10,7 +10,7 @@ spec:
     matchLabels:
       grafana.internal/instance: grafana
   json: |
-{
+    {
   "annotations": {
     "list": [
       {
@@ -2415,4 +2415,4 @@ spec:
   "uid": "dew5f47h9ooowd",
   "version": 1,
   "weekStart": ""
-}
+    }

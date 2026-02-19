@@ -7,16 +7,9 @@ spec:
   chartRef:
     kind: OCIRepository
     name: kepler
-  fullnameOverride: kepler
   interval: 1h
   values:
-    serviceMonitor:
-      enabled: true
-      defaults:
-        interval: 1h
-        scrapeTimeout: 10s
-    tolerations:
-      - operator: Exists
+    fullnameOverride: kepler
     resources:
       limits:
         cpu: 500m
@@ -24,3 +17,10 @@ spec:
       requests:
         cpu: 100m
         memory: 400Mi
+    serviceMonitor:
+      enabled: true
+      defaults:
+        interval: 1h
+        scrapeTimeout: 10s
+    tolerations:
+      - operator: Exists
