@@ -4,19 +4,16 @@ kind: HelmRelease
 metadata:
   name: kepler
 spec:
+  chartRef:
+    kind: OCIRepository
+    name: kepler
   interval: 30m
-  chart:
-    spec:
-      chart: kepler
-      version: 0.6.1
-      sourceRef:
-        kind: HelmRepository
-        name: kepler
   values:
     serviceMonitor:
       enabled: true
-      labels:
-        prometheus: kube-prometheus-stack
+      defaults:
+        interval: 1h
+        scrapeTimeout: 10s
     tolerations:
       - operator: Exists
     resources:
