@@ -10,17 +10,15 @@ spec:
   interval: 1h
   values:
     fullnameOverride: kepler
-    resources:
-      limits:
-        cpu: 500m
-        memory: 400Mi
-      requests:
-        cpu: 100m
-        memory: 400Mi
+    daemonset:
+      resources:
+        limits:
+          cpu: 1000m
+          memory: 128Mi
+        requests:
+          cpu: 100m
+          memory: 128Mi
     serviceMonitor:
       enabled: true
-      defaults:
-        interval: 1h
-        scrapeTimeout: 10s
-    tolerations:
-      - operator: Exists
+      interval: 10s
+      scrapeTimeout: 15s
