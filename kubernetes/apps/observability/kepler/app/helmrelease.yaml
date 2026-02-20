@@ -13,10 +13,10 @@ spec:
     daemonset:
       resources:
         limits:
-          cpu: 1000m
+          cpu: 2000m
           memory: 128Mi
         requests:
-          cpu: 100m
+          cpu: 160m
           memory: 128Mi
     serviceMonitor:
       enabled: true
