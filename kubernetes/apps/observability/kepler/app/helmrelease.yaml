@@ -13,7 +13,7 @@ spec:
     daemonset:
       resources:
         limits:
-          cpu: 2000m
+          cpu: 3000m
           memory: 128Mi
         requests:
           cpu: 160m
