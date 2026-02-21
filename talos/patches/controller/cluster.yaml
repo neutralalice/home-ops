@@ -8,7 +8,7 @@ cluster:
       enable-aggregator-routing: true
     resources:
       limits:
-        cpu: 4000m
+        cpu: 5000m
         memory: 2048Mi
       requests:
         cpu: 250m
