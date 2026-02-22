@@ -9,6 +9,9 @@ spec:
     name: kepler
   interval: 1h
   values:
+    config:
+      log:
+        level: info
     fullnameOverride: kepler
     daemonset:
       resources:
