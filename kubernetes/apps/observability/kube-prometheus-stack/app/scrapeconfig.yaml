@@ -6,6 +6,7 @@ metadata:
 spec:
   staticConfigs:
     - targets:
+        - 172.16.69.1:9100
         - 172.16.69.17:9100
   metricsPath: /metrics
   relabelings:
