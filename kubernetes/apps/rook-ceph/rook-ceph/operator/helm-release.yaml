@@ -224,7 +224,7 @@ spec:
     image:
       repository: ghcr.io/rook/ceph
     monitoring:
-    enabled: true
+      enabled: true
     resources:
       limits:
         cpu: 2000m
