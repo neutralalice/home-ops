@@ -48,10 +48,10 @@ spec:
       network:
         provider: host
         addressRanges:
-          public:
-            - 172.16.69.0/24
           cluster:
             - 169.254.255.0/24
+          public:
+            - 172.16.69.0/24
         connections:
           requireMsgr2: true
       resources:
