@@ -8,7 +8,7 @@
       automergeType: "pr",
       matchUpdateTypes: ["digest"],
       matchPackageNames: ["/home-operations/"],
-      minimumReleaseAge: "3 days"
+      minimumReleaseAge: "4 days"
       ignoreTests: false,
     },
     {
@@ -18,7 +18,7 @@
       automergeType: "pr",
       matchUpdateTypes: ["minor", "patch"],
       matchPackageNames: ["/kube-prometheus-stack/"],
-      minimumReleaseAge: "2 days"
+      minimumReleaseAge: "3 days"
       ignoreTests: false,
     },
     {
@@ -27,7 +27,7 @@
       automerge: true,
       automergeType: "branch",
       matchUpdateTypes: ["minor", "patch", "digest"],
-      minimumReleaseAge: "4 days",
+      minimumReleaseAge: "5 days",
       ignoreTests: true,
     },
     {
@@ -40,7 +40,7 @@
       automerge: true,
       automergeType: "branch",
       matchUpdateTypes: ["minor", "patch", "digest"],
-      minimumReleaseAge: "2 days",
+      minimumReleaseAge: "3 days",
       ignoreTests: true,
     },
     {
@@ -50,7 +50,7 @@
       automergeType: "branch",
       matchUpdateTypes: ["minor", "patch"],
       matchPackageNames: ["/external-dns/", "/gateway-api/", "/prometheus-operator/"],
-      minimumReleaseAge: "3 days"
+      minimumReleaseAge: "5 days"
       ignoreTests: true,
     },
   ],
