@@ -50,6 +50,7 @@ spec:
               cpu: 400m
               memory: 6144Mi
     defaultPodOptions:
+      automountServiceAccountToken: false
       resourceClaims:
         - name: gpu
           resourceClaimTemplateName: jellyfin-gpu
