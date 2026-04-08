@@ -18,6 +18,7 @@
   ],
   dependencyDashboardAutoclose: true,
   dependencyDashboardTitle: "Renovate Dashboard",
+  minimumReleaseAge: "1 days",
   suppressNotifications: ["prEditedNotification", "prIgnoreNotification"],
   flux: {
     managerFilePatterns: ["/\\.yaml(?:\\.j2)?$/"]
