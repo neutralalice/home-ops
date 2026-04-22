@@ -6,6 +6,7 @@
     "security:openssf-scorecard",
     ":automergeBranch",
     ":automergeDigest",
+    ":automergePatch",
     ":disableRateLimiting",
     ":semanticCommits",
     "github>neutralalice/home-ops//.github/renovate/autoMerge.json5",
