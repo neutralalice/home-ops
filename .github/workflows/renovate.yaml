@@ -49,7 +49,7 @@ jobs:
         uses: actions/create-github-app-token@1b10c78c7865c340bc4f6099eb2f838309f1e8c3 # v3
         id: app-token
         with:
-          app-id: "${{ secrets.BOT_CLIENT_ID }}"
+          client-id: "${{ secrets.BOT_CLIENT_ID }}"
           private-key: "${{ secrets.BOT_PRIVATE_KEY }}"
 
       - name: Checkout
@@ -64,7 +64,7 @@ jobs:
           LOG_LEVEL: "${{ inputs.logLevel || 'info' }}"
           RENOVATE_AUTODISCOVER: true
           RENOVATE_AUTODISCOVER_FILTER: "${{ github.repository }}"
-          RENOVATE_DRY_RUN: "${{ inputs.dryRun }}"
+          RENOVATE_DRY_RUN: "${{ inputs.dryRun || 'false' }}"
           RENOVATE_GIT_AUTHOR: "${{ secrets.BOT_USERNAME }} <${{ secrets.BOT_USER_ID }}+${{ secrets.BOT_USERNAME }}[bot]@users.noreply.github.com>"
           RENOVATE_PLATFORM: github
           RENOVATE_PLATFORM_COMMIT: true
