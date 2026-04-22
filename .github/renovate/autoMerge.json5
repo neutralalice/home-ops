@@ -53,5 +53,14 @@
       minimumReleaseAge: "5 days",
       ignoreTests: true,
     },
+    {
+      description: "Auto-merge Mise Release",
+      matchManagers: ["mise"],
+      automerge: true,
+      automergeType: "branch",
+      matchUpdateTypes: ["minor", "patch"],
+      minimumReleaseAge: "6 days",
+      ignoreTests: true,
+    },
   ],
 }
