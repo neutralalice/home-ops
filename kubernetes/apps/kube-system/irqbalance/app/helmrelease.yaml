@@ -40,8 +40,8 @@ spec:
               memory: 8Mi
         type: daemonset
     defaultPodOptions:
+      automountServiceAccountToken: false
       securityContext:
-        automountServiceAccountToken: false
         seccompProfile:
           type: RuntimeDefault
       hostIPC: true
