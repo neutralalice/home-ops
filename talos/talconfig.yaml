@@ -36,6 +36,7 @@ nodes:
           - iommu=pt
           - mitigations=off
           - security=none # disables LSM
+          - talos.dashboard.disabled=1
           - i915.force_probe=!46a6 # disable igpu device id for i915
           - xe.force_probe=46a6 # enable igpu device id for xe
         systemExtensions:
@@ -94,6 +95,7 @@ nodes:
           - iommu=pt
           - mitigations=off
           - security=none # disables LSM
+          - talos.dashboard.disabled=1
           - i915.force_probe=!46a6 # disable igpu device id for i915
           - xe.force_probe=46a6 # enable igpu device id for xe
         systemExtensions:
@@ -150,6 +152,7 @@ nodes:
           - iommu=pt
           - mitigations=off
           - security=none # disables LSM
+          - talos.dashboard.disabled=1
           - i915.force_probe=!46a6 # disable igpu device id for i915
           - xe.force_probe=46a6 # enable igpu device id for xe
         systemExtensions:
