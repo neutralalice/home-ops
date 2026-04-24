@@ -38,6 +38,7 @@ spec:
         type: Recreate
       template:
         spec:
+          automountServiceAccountToken: false
           containers:
             - name: grafana
               env:
@@ -58,7 +59,6 @@ spec:
                   cpu: 50m
                   memory: 512Mi
           securityContext:
-            automountServiceAccountToken: false
             runAsNonRoot: true
             runAsUser: 1000
             runAsGroup: 1000
