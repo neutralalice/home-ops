@@ -27,7 +27,6 @@ nodes:
       useUKI: true
       secureboot: false
     controlPlane: true
-    talosImageURL: factory.talos.dev/metal-installer/e4c628b8b7363b7a538b28ed35fa61898ce64b537ad44b4b910e74bdefc0662a
     schematic:
       customization:
         extraKernelArgs:
@@ -37,6 +36,7 @@ nodes:
           - mitigations=off
           - security=none # disables LSM
           - talos.dashboard.disabled=1
+          - thunderbolt.host_reset=0
           - i915.force_probe=!46a6 # disable igpu device id for i915
           - xe.force_probe=46a6 # enable igpu device id for xe
         systemExtensions:
@@ -58,7 +58,6 @@ nodes:
         vip:
           ip: "172.16.69.10"
       - mtu: 65520
-        up: true
         addresses:
           - 169.254.255.11/32
         routes:
@@ -68,7 +67,6 @@ nodes:
           busPath: 0-1.0
           driver: thunderbolt-net
       - mtu: 65520
-        up: true
         addresses:
           - 169.254.255.11/32
         routes:
@@ -86,7 +84,6 @@ nodes:
       useUKI: true
       secureboot: false
     controlPlane: true
-    talosImageURL: factory.talos.dev/metal-installer/e4c628b8b7363b7a538b28ed35fa61898ce64b537ad44b4b910e74bdefc0662a
     schematic:
       customization:
         extraKernelArgs:
@@ -96,6 +93,7 @@ nodes:
           - mitigations=off
           - security=none # disables LSM
           - talos.dashboard.disabled=1
+          - thunderbolt.host_reset=0
           - i915.force_probe=!46a6 # disable igpu device id for i915
           - xe.force_probe=46a6 # enable igpu device id for xe
         systemExtensions:
@@ -115,7 +113,6 @@ nodes:
         vip:
           ip: "172.16.69.10"
       - mtu: 65520
-        up: true
         addresses:
           - 169.254.255.12/32
         routes:
@@ -125,7 +122,6 @@ nodes:
           busPath: 1-1.0
           driver: thunderbolt-net
       - mtu: 65520
-        up: true
         addresses:
           - 169.254.255.12/32
         routes:
@@ -143,7 +139,6 @@ nodes:
       useUKI: true
       secureboot: false
     controlPlane: true
-    talosImageURL: factory.talos.dev/metal-installer/e4c628b8b7363b7a538b28ed35fa61898ce64b537ad44b4b910e74bdefc0662a
     schematic:
       customization:
         extraKernelArgs:
@@ -153,6 +148,7 @@ nodes:
           - mitigations=off
           - security=none # disables LSM
           - talos.dashboard.disabled=1
+          - thunderbolt.host_reset=0
           - i915.force_probe=!46a6 # disable igpu device id for i915
           - xe.force_probe=46a6 # enable igpu device id for xe
         systemExtensions:
@@ -172,7 +168,6 @@ nodes:
         vip:
           ip: "172.16.69.10"
       - mtu: 65520
-        up: true
         addresses:
           - 169.254.255.13/32
         routes:
@@ -182,7 +177,6 @@ nodes:
           busPath: 0-1.0
           driver: thunderbolt-net
       - mtu: 65520
-        up: true
         addresses:
           - 169.254.255.13/32
         routes:
