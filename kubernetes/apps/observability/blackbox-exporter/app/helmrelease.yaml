@@ -47,12 +47,22 @@ spec:
             preferred_ip_protocol: "ip4"
     podAnnotations:
       reloader.stakater.com/auto: "true"
+    podSecurityContext:
+      runAsUser: 1000
+      runAsGroup: 1000
+      fsGroup: 1000
+      fsGroupChangePolicy: OnRootMismatch
+      seccompProfile:
+        type: RuntimeDefault
     securityContext:
-      readOnlyRootFilesystem: true
       allowPrivilegeEscalation: false
+      readOnlyRootFilesystem: true
+      runAsNonRoot: true
       capabilities:
         add:
           - "NET_RAW"
+        drop:
+          - "ALL"
     service:
       ipFamilyPolicy: PreferDualStack
     resources:
