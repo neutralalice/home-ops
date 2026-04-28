@@ -45,8 +45,9 @@ spec:
               readiness: *probes
             securityContext:
               allowPrivilegeEscalation: false
-              readOnlyRootFilesystem: true
               capabilities: { drop: ["ALL"] }
+              privileged: false
+              readOnlyRootFilesystem: true
     defaultPodOptions:
       automountServiceAccountToken: false
       hostUsers: false
