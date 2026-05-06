@@ -24,14 +24,6 @@ spec:
 
     operator:
       scanJobsConcurrentLimit: 3
-      scanJobPodTemplatePodSecurityContext:
-        runAsNonRoot: true
-        runAsUser: 10000
-        runAsGroup: 10000
-        fsGroup: 10000
-        fsGroupChangePolicy: OnRootMismatch
-        seccompProfile:
-          type: RuntimeDefault
       scanJobTTL: 300s
       scanJobTimeout: 20m
       builtInTrivyServer: true
@@ -68,6 +60,14 @@ spec:
 
     trivyOperator:
       skipResourceByLabels: "app.kubernetes.io/created-by=volsync"
+      scanJobPodTemplatePodSecurityContext:
+        runAsNonRoot: true
+        runAsUser: 10000
+        runAsGroup: 10000
+        fsGroup: 10000
+        fsGroupChangePolicy: OnRootMismatch
+        seccompProfile:
+          type: RuntimeDefault
 
     securityContext:
       allowPrivilegeEscalation: false
