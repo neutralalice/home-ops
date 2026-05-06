@@ -12,6 +12,16 @@ spec:
     serviceMonitor:
       enabled: true
 
+    nodeCollector:
+      volumeMounts:
+        - name: etc-os-release
+          mountPath: /host/etc/os-release
+          readOnly: true
+      volumes:
+        - name: etc-os-release
+          hostPath:
+            path: /etc/os-release
+
     operator:
       scanJobsConcurrentLimit: 3
       scanJobTTL: 300s
