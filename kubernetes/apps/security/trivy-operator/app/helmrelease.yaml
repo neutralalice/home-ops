@@ -1,0 +1,46 @@
+---
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: &app trivy-operator
+spec:
+  interval: 1h
+  chartRef:
+    kind: OCIRepository
+    name: *app
+  values:
+    serviceMonitor:
+      enabled: true
+
+    operator:
+      scanJobsConcurrentLimit: 3
+      scanJobTTL: 300s
+      scanJobTimeout: 20m
+      builtInTrivyServer: true
+      vulnerabilityScannerScanOnlyCurrentRevisions: true
+      configAuditScannerScanOnlyCurrentRevisions: true
+      annotations:
+        reloader.stakater.com/auto: "true"
+
+    trivy:
+      slow: true
+      ignoreUnfixed: true
+      server:
+        resources:
+          limits:
+            cpu: 1000m
+            memory: 432Mi
+          requests:
+            cpu: 17m
+            memory: 432Mi
+
+    trivyOperator:
+      skipResourceByLabels: "app.kubernetes.io/created-by=volsync"
+
+    resources:
+      limits:
+        cpu: 2000m
+        memory: 1520Mi
+      requests:
+        cpu: 32m
+        memory: 1520Mi
