@@ -48,6 +48,9 @@ spec:
               capabilities: { drop: ["ALL"] }
               privileged: false
               readOnlyRootFilesystem: true
+            resources:
+              claims:
+                - name: gpu
     defaultPodOptions:
       automountServiceAccountToken: false
       hostUsers: false
