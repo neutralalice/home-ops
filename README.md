@@ -1,104 +1,19 @@
-# ⛵ Cluster Template
+# Abandon all hope, ye who enter here
 
-Welcome to my template designed for deploying a single Kubernetes cluster. Whether you're setting up a cluster at home on bare-metal or virtual machines (VMs), this project aims to simplify the process and make Kubernetes more accessible. This template is inspired by my personal [home-ops](https://github.com/onedr0p/home-ops) repository, providing a practical starting point for anyone interested in managing their own Kubernetes environment.
+This is setup for my baremetal talos cluster. If you find something interesting in here, I'd recommend not directly yoinking the configuration because there are often specific reasons why I have configured applications, or the actual cluster this way.
 
-At its core, this project leverages [makejinja](https://github.com/mirkolenz/makejinja), a powerful tool for rendering templates. By reading configuration files—such as [cluster.yaml](./cluster.sample.yaml) and [nodes.yaml](./nodes.sample.yaml)—Makejinja generates the necessary configurations to deploy a Kubernetes cluster with the following features:
+The power of the king will make you lonely indeed. If you are prepared for that, then...
 
-- Easy configuration through YAML files.
-- Compatibility with home setups, whether on physical hardware or VMs.
-- A modular and extensible approach to cluster deployment and management.
+## Features
 
-With this approach, you'll gain a solid foundation to build and manage your Kubernetes cluster efficiently.
+See specific docs
 
-## ✨ Features
+## Setup notes
 
-A Kubernetes cluster deployed with [Talos Linux](https://github.com/siderolabs/talos) and an opinionated implementation of [Flux](https://github.com/fluxcd/flux2) using [GitHub](https://github.com/) as the Git provider, [sops](https://github.com/getsops/sops) to manage secrets and [cloudflared](https://github.com/cloudflare/cloudflared) to access applications external to your local network.
-
-- **Required:** Some knowledge of [Containers](https://opencontainers.org/), [YAML](https://noyaml.com/), [Git](https://git-scm.com/), and a **Cloudflare account** with a **domain**.
-- **Included components:** [flux](https://github.com/fluxcd/flux2), [cilium](https://github.com/cilium/cilium), [cert-manager](https://github.com/cert-manager/cert-manager), [spegel](https://github.com/spegel-org/spegel), [reloader](https://github.com/stakater/Reloader), [envoy-gateway](https://github.com/envoyproxy/gateway), [external-dns](https://github.com/kubernetes-sigs/external-dns) and [cloudflared](https://github.com/cloudflare/cloudflared).
-
-**Other features include:**
-
-- Dev env managed w/ [mise](https://mise.jdx.dev/)
-- Workflow automation w/ [GitHub Actions](https://github.com/features/actions)
-- Dependency automation w/ [Renovate](https://www.mend.io/renovate)
-- Flux `HelmRelease` and `Kustomization` diffs w/ [flux-local](https://github.com/allenporter/flux-local)
-
-Does this sound cool to you? If so, continue to read on! 👇
-
-## 🚀 Let's Go!
-
-There are **6 stages** outlined below for completing this project, make sure you follow the stages in order.
-
-### Stage 1: Hardware Configuration
-
-For a **stable** and **high-availability** production Kubernetes cluster, hardware selection is critical. NVMe/SSDs are strongly preferred over HDDs, and **Bare Metal is strongly recommended** over virtualized platforms like Proxmox.
-
-Using **enterprise NVMe or SATA SSDs on Bare Metal** (even used drives) provides the most reliable performance and rock-solid stability. Consumer **NVMe or SATA SSDs**, on the other hand, carry risks such as latency spikes, corruption, and fsync delays, particularly in multi-node setups.
-
-**Proxmox with enterprise drives can work** for testing or carefully tuned production clusters, but it introduces additional layers of potential I/O contention — especially if consumer drives are used. Any **replicated storage** (e.g., Rook-Ceph, Longhorn) should always use **dedicated disks separate from control plane and etcd nodes** to ensure reliability. Worker nodes are more flexible, but risky configurations should still be avoided for stateful workloads to maintain cluster stability.
-
-These guidelines provide a strong baseline, but there are always exceptions and nuances. The best way to ensure your hardware configuration works is to **test it thoroughly and benchmark performance** under realistic workloads.
+Following the docs in this order
 
 
-### Stage 2: Machine Preparation
-
-> [!IMPORTANT]
-> If you have **3 or more nodes** it is recommended to make 3 of them controller nodes for a highly available control plane. This project configures **all nodes** to be able to run workloads. **Worker nodes** are therefore **optional**.
->
-> **Minimum system requirements**
-> | Role    | Cores    | Memory        | System Disk               |
-> |---------|----------|---------------|---------------------------|
-> | Control/Worker | 4 | 16GB | 256GB SSD/NVMe |
-
-1. Head over to the [Talos Linux Image Factory](https://factory.talos.dev) and follow the instructions. Be sure to only choose the **bare-minimum system extensions** as some might require additional configuration and prevent Talos from booting without it. Depending on your CPU start with the Intel/AMD system extensions (`i915`, `intel-ucode` & `mei` **or** `amdgpu` & `amd-ucode`), you can always add system extensions after Talos is installed and working.
-
-2. This will eventually lead you to download a Talos Linux ISO (or for SBCs a RAW) image. Make sure to note the **schematic ID** you will need this later on.
-
-3. Flash the Talos ISO or RAW image to a USB drive and boot from it on your nodes.
-
-4. Verify with `nmap` that your nodes are available on the network. (Replace `192.168.1.0/24` with the network your nodes are on.)
-
-    ```sh
-    nmap -Pn -n -p 50000 192.168.1.0/24 -vv | grep 'Discovered'
-    ```
-
-### Stage 3: Local Workstation
-
-> [!TIP]
-> It is recommended to set the visibility of your repository to `Public` so you can easily request help if you get stuck.
-
-1. Create a new repository by clicking the green `Use this template` button at the top of this page, then clone the new repo you just created and `cd` into it. Alternatively you can us the [GitHub CLI](https://cli.github.com/) ...
-
-    ```sh
-    export REPONAME="home-ops"
-    gh repo create $REPONAME --template onedr0p/cluster-template --disable-wiki --public --clone && cd $REPONAME
-    ```
-
-2. **Install** the [Mise CLI](https://mise.jdx.dev/getting-started.html#installing-mise-cli) on your workstation.
-
-3. **Activate** Mise in your shell by following the [activation guide](https://mise.jdx.dev/getting-started.html#activate-mise).
-
-4. Use `mise` to install the **required** CLI tools:
-
-    ```sh
-    mise trust
-    pip install pipx
-    mise install
-    ```
-
-   📍 _**Having trouble installing the tools?** Try unsetting the `GITHUB_TOKEN` env var and then run these commands again_
-
-   📍 _**Having trouble compiling Python?** Try running `mise settings python.compile=0` and then run these commands again_
-
-5. Logout of GitHub Container Registry (GHCR) as this may cause authorization problems when using the public registry:
-
-    ```sh
-    docker logout ghcr.io
-    helm registry logout ghcr.io
-    ```
-
-### Stage 4: Cloudflare configuration
+### Cloudflare configuration
 
 > [!WARNING]
 > If any of the commands fail with `command not found` or `unknown command` it means `mise` is either not install or configured incorrectly.
@@ -435,60 +350,6 @@ If your workloads require persistent storage with features like replication or c
 
 These tools offer a variety of solutions to meet your persistent storage needs, whether you’re using cloud-native or self-hosted infrastructures.
 
-### Community Repositories
+## Thanks
 
-Community member [@whazor](https://github.com/whazor) created [Kubesearch](https://kubesearch.dev) to allow searching Flux HelmReleases across Github and Gitlab repositories with the `kubesearch` topic.
-
-## 🙋 Support
-
-### Community
-
-- Make a post in this repository's Github [Discussions](https://github.com/onedr0p/cluster-template/discussions).
-- Start a thread in the `#support` or `#cluster-template` channels in the [Home Operations](https://discord.gg/home-operations) Discord server.
-
-### GitHub Sponsors
-
-If you're having difficulty with this project, can't find the answers you need through the community support options above, or simply want to show your appreciation while gaining deeper insights, I’m offering one-on-one paid support through GitHub Sponsors for a limited time. Payment and scheduling will be coordinated through [GitHub Sponsors](https://github.com/sponsors/onedr0p).
-
-<details>
-
-<summary>Click to expand the details</summary>
-
-<br>
-
-- **Rate**: $50/hour (no longer than 2 hours / day).
-- **What’s Included**: Assistance with deployment, debugging, or answering questions related to this project.
-- **What to Expect**:
-  1. Sessions will focus on specific questions or issues you are facing.
-  2. I will provide guidance, explanations, and actionable steps to help resolve your concerns.
-  3. Support is limited to this project and does not extend to unrelated tools or custom feature development.
-
-</details>
-
-## 🙌 Related Projects
-
-If this repo is too hot to handle or too cold to hold check out these following projects.
-
-- [ajaykumar4/cluster-template](https://github.com/ajaykumar4/cluster-template) - _A template for deploying a Talos Kubernetes cluster including Argo for GitOps_
-- [khuedoan/homelab](https://github.com/khuedoan/homelab) - _Fully automated homelab from empty disk to running services with a single command._
-- [mitchross/k3s-argocd-starter](https://github.com/mitchross/k3s-argocd-starter) - starter kit for k3s, argocd
-- [ricsanfre/pi-cluster](https://github.com/ricsanfre/pi-cluster) - _Pi Kubernetes Cluster. Homelab kubernetes cluster automated with Ansible and FluxCD_
-- [techno-tim/k3s-ansible](https://github.com/techno-tim/k3s-ansible) - _The easiest way to bootstrap a self-hosted High Availability Kubernetes cluster. A fully automated HA k3s etcd install with kube-vip, MetalLB, and more. Build. Destroy. Repeat._
-
-## ⭐ Stargazers
-
-<div align="center">
-
-<a href="https://star-history.com/#onedr0p/cluster-template&Date">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://api.star-history.com/svg?repos=onedr0p/cluster-template&type=Date&theme=dark" />
-    <source media="(prefers-color-scheme: light)" srcset="https://api.star-history.com/svg?repos=onedr0p/cluster-template&type=Date" />
-    <img alt="Star History Chart" src="https://api.star-history.com/svg?repos=onedr0p/cluster-template&type=Date" />
-  </picture>
-</a>
-
-</div>
-
-## 🤝 Thanks
-
-Big shout out to all the contributors, sponsors and everyone else who has helped on this project.
+This cluster started off heavily following xunholys cluster configuration, and slowly over time morphed to follow Onedr0ps.
