@@ -62,6 +62,9 @@ spec:
         fsGroupChangePolicy: OnRootMismatch
         seccompProfile:
           type: RuntimeDefault
+      resourceClaims:
+        - name: gpu
+          resourceClaimTemplateName: echo-test-sriov-gpu
     service:
       echo:
         ports:
