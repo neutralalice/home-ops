@@ -64,7 +64,7 @@ spec:
           type: RuntimeDefault
       resourceClaims:
         - name: gpu
-          resourceClaimTemplateName: echo-test-sriov-gpu
+          resourceClaimTemplateName: echo-gpu
     service:
       echo:
         ports:
