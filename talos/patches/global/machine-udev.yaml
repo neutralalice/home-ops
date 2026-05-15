@@ -3,3 +3,4 @@ machine:
     rules:
       - # Thunderbolt - Disable Power Management
         ACTION=="add", SUBSYSTEM=="thunderbolt", ATTR{power/control}="on"
+      - ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x8086", ATTR{device}=="0x46a6", ATTR{sriov_drivers_autoprobe}="0", ATTR{sriov_numvfs}="7"
