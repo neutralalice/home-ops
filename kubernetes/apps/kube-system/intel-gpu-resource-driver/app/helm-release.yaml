@@ -13,6 +13,6 @@ spec:
       staticPath: /run/cdi
       dynamicPath: /run/cdi
     kubeletPlugin:
-      privileged: true
+      privileged: false # testing this with intel-xpumd
       healthMonitoring:
         enabled: true
