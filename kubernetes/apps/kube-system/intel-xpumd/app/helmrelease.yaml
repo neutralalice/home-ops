@@ -10,8 +10,6 @@ spec:
   interval: 1h
   values:
     gpuAccess: dra
-#    nodeSelector:
-#      node.kubernetes.io/gpu: "true"
     config:
       service:
         pipelines:
