@@ -17,7 +17,7 @@ spec:
   path: ./kubernetes/apps/kube-system/intel-xpumd/app
   prune: true
   sourceRef:
-    kind: OCIRepository
+    kind: GitRepository
     name: flux-system
     namespace: flux-system
   targetNamespace: kube-system
