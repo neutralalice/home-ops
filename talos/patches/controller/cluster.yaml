@@ -8,10 +8,10 @@ cluster:
       enable-aggregator-routing: true
     resources:
       limits:
-        cpu: 5000m
+        cpu: 1000m
         memory: 2048Mi
       requests:
-        cpu: 250m
+        cpu: 1000m
         memory: 2048Mi
   controllerManager:
     extraArgs:
@@ -22,7 +22,7 @@ cluster:
         cpu: 1000m
         memory: 512Mi
       requests:
-        cpu: 40m
+        cpu: 1000m
         memory: 512Mi
   coreDNS:
     disabled: true
@@ -41,6 +41,6 @@ cluster:
         cpu: 1000m
         memory: 128Mi
       requests:
-        cpu: 16m
+        cpu: 1000m
         memory: 128Mi
 
