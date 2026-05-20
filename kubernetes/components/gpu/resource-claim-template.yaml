@@ -10,5 +10,8 @@ spec:
         - name: gpu
           exactly:
             deviceClassName: gpu.intel.com
-#            adminAccess: true
-            allocationMode: All
+            selectors:
+            - cel:
+                expression: device.attributes["gpu.intel.com"].sriov == false
+            - cel:
+                expression: device.attributes["gpu.intel.com"].pciId == "0x46a6"
