@@ -12,7 +12,7 @@ resources:
   - ./coredns/ks.yaml
   - ./descheduler/ks.yaml
   - ./intel-gpu-resource-driver/ks.yaml
-  - ./intel-xpumd/ks.yaml
+#  - ./intel-xpumd/ks.yaml
   - ./irqbalance/ks.yaml
   - ./metrics-server/ks.yaml
   - ./snapshot-controller/ks.yaml
