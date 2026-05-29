@@ -39,16 +39,14 @@ spec:
               readOnlyRootFilesystem: true
               capabilities: {drop: ["ALL"]}
             resources:
+              limits:
+                cpu: 8000m
+                memory: 6144Mi
+              requests:
+                cpu: 400m
+                memory: 6144Mi
               claims:
                 - name: gpu
-        pod:
-          resources:
-            limits:
-              cpu: 8000m
-              memory: 6144Mi
-            requests:
-              cpu: 400m
-              memory: 6144Mi
     defaultPodOptions:
       automountServiceAccountToken: false
       resourceClaims:
