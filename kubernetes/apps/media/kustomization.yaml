@@ -5,6 +5,7 @@ namespace: media
 components:
   - ../../components/sops
 resources:
+  - ./limitrange.yaml
   - ./namespace.yaml
   - ./jellyfin/ks.yaml
   - ./qbittorrent/ks.yaml
