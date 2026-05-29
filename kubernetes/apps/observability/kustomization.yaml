@@ -6,6 +6,7 @@ components:
   - ../../components/flux-alerts
   - ../../components/sops
 resources:
+  - ./limitrange.yaml
   - ./namespace.yaml
   - ./blackbox-exporter/ks.yaml
   - ./fluent-bit/ks.yaml
