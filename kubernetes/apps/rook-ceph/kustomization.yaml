@@ -4,5 +4,6 @@ kind: Kustomization
 namespace: rook-ceph
 
 resources:
+  - ./limitrange.yaml
   - ./namespace.yaml
   - ./rook-ceph/ks.yaml
