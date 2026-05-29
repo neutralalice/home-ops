@@ -5,5 +5,6 @@ namespace: security
 components:
   - ../../components/sops
 resources:
+  - ./limitrange.yaml
   - ./namespace.yaml
   - ./trivy-operator/ks.yaml
