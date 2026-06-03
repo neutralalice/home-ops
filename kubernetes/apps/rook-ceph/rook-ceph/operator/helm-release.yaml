@@ -103,80 +103,80 @@ spec:
             requests:
               cpu: 50m
               memory: 256Mi
-      csiCephFSProvisionerResource: |
-        - name : csi-attacher
-          resource:
-            limits:
-              cpu: 1000m
-              memory: 256Mi
-            requests:
-              cpu: 100m
-              memory: 256Mi
-        - name : csi-cephfsplugin
-          resource:
-            limits:
-              cpu: 1000m
-              memory: 1024Mi
-            requests:
-              cpu: 250m
-              memory: 1024Mi
-        - name : csi-provisioner
-          resource:
-            limits:
-              cpu: 1000m
-              memory: 256Mi
-            requests:
-              cpu: 100m
-              memory: 256Mi
-        - name : csi-resizer
-          resource:
-            limits:
-              cpu: 1000m
-              memory: 256Mi
-            requests:
-              cpu: 100m
-              memory: 256Mi
-        - name : csi-snapshotter
-          resource:
-            limits:
-              cpu: 1000m
-              memory: 256Mi
-            requests:
-              cpu: 100m
-              memory: 256Mi
-        - name : liveness-prometheus
-          resource:
-            limits:
-              cpu: 1000m
-              memory: 256Mi
-            requests:
-              cpu: 50m
-              memory: 128Mi
-      csiCephFSPluginResource: |
-        - name : csi-cephfsplugin
-          resource:
-            limits:
-              cpu: 1000m
-              memory: 1024Mi
-            requests:
-              cpu: 250m
-              memory: 1024Mi
-        - name : driver-registrar
-          resource:
-            limits:
-              cpu: 1000m
-              memory: 256Mi
-            requests:
-              cpu: 50m
-              memory: 256Mi
-        - name : liveness-prometheus
-          resource:
-            limits:
-              cpu: 1000m
-              memory: 256Mi
-            requests:
-              cpu: 50m
-              memory: 256Mi
+#      csiCephFSProvisionerResource: |
+#        - name : csi-attacher
+#          resource:
+#            limits:
+#              cpu: 1000m
+#              memory: 256Mi
+#            requests:
+#              cpu: 100m
+#              memory: 256Mi
+#        - name : csi-cephfsplugin
+#          resource:
+#            limits:
+#              cpu: 1000m
+#              memory: 1024Mi
+#            requests:
+#              cpu: 250m
+#              memory: 1024Mi
+#        - name : csi-provisioner
+#          resource:
+#            limits:
+#              cpu: 1000m
+#              memory: 256Mi
+#            requests:
+#              cpu: 100m
+#              memory: 256Mi
+#        - name : csi-resizer
+#          resource:
+#            limits:
+#              cpu: 1000m
+#              memory: 256Mi
+#            requests:
+#              cpu: 100m
+#              memory: 256Mi
+#        - name : csi-snapshotter
+#          resource:
+#            limits:
+#              cpu: 1000m
+#              memory: 256Mi
+#            requests:
+#              cpu: 100m
+#              memory: 256Mi
+#        - name : liveness-prometheus
+#          resource:
+#            limits:
+#              cpu: 1000m
+#              memory: 256Mi
+#            requests:
+#              cpu: 50m
+#              memory: 128Mi
+#      csiCephFSPluginResource: |
+#        - name : csi-cephfsplugin
+#          resource:
+#            limits:
+#              cpu: 1000m
+#              memory: 1024Mi
+#            requests:
+#              cpu: 250m
+#              memory: 1024Mi
+#        - name : driver-registrar
+#          resource:
+#            limits:
+#              cpu: 1000m
+#              memory: 256Mi
+#            requests:
+#              cpu: 50m
+#              memory: 256Mi
+#        - name : liveness-prometheus
+#          resource:
+#            limits:
+#              cpu: 1000m
+#              memory: 256Mi
+#            requests:
+#              cpu: 50m
+#              memory: 256Mi
       csiNFSProvisionerResource: |
         - name : csi-attacher
           resource:
