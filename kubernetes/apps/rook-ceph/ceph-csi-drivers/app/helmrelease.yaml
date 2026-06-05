@@ -11,7 +11,7 @@ spec:
   values:
     drivers:
       cephfs:
-        enabled: false
+        enabled: true
       nfs:
         enabled: false
       nvmeof:
