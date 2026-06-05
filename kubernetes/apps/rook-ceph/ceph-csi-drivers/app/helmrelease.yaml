@@ -12,6 +12,7 @@ spec:
     drivers:
       cephfs:
         enabled: true
+        name: rook-ceph.cephfs.csi.ceph.com
       nfs:
         enabled: false
       nvmeof:
