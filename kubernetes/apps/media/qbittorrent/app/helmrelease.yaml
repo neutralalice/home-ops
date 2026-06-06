@@ -42,18 +42,17 @@ spec:
                 spec:
                   failureThreshold: 30
                   periodSeconds: 10
+            resources:
+              limits:
+                memory: 2Gi
+                cpu: 2000m
+              requests:
+                cpu: 100m
+                memory: 2Gi
             securityContext:
               allowPrivilegeEscalation: false
               readOnlyRootFilesystem: true
               capabilities: {drop: ["ALL"]}
-        pod:
-          resources:
-            limits:
-              memory: 8Gi
-              cpu: 2000m
-            requests:
-              cpu: 100m
-              memory: 8Gi
     defaultPodOptions:
       automountServiceAccountToken: false
       securityContext:
