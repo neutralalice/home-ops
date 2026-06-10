@@ -47,8 +47,6 @@ spec:
               requests:
                 cpu: 5m
                 memory: 72Mi
-              claims:
-                - name: gpu
     defaultPodOptions:
       automountServiceAccountToken: false
       hostUsers: false
@@ -60,9 +58,6 @@ spec:
         fsGroupChangePolicy: OnRootMismatch
         seccompProfile:
           type: RuntimeDefault
-      resourceClaims:
-        - name: gpu
-          resourceClaimTemplateName: echo-gpu
     service:
       echo:
         ports:
