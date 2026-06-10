@@ -39,7 +39,6 @@ nodes:
           - thunderbolt.host_reset=0
           - i915.force_probe=!46a6 # disable igpu device id for i915
           - xe.force_probe=46a6 # enable igpu device id for xe
-          - xe.max_vfs=7
         systemExtensions:
           officialExtensions:
             - siderolabs/i915 # note: xe takes guc from i915
@@ -97,7 +96,6 @@ nodes:
           - thunderbolt.host_reset=0
           - i915.force_probe=!46a6 # disable igpu device id for i915
           - xe.force_probe=46a6 # enable igpu device id for xe
-          - xe.max_vfs=7
         systemExtensions:
           officialExtensions:
             - siderolabs/i915 # note: xe takes guc from i915
@@ -153,7 +151,6 @@ nodes:
           - thunderbolt.host_reset=0
           - i915.force_probe=!46a6 # disable igpu device id for i915
           - xe.force_probe=46a6 # enable igpu device id for xe
-          - xe.max_vfs=7
         systemExtensions:
           officialExtensions:
             - siderolabs/i915 # note: xe takes guc from i915
