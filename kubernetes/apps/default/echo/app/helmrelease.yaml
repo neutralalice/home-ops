@@ -42,7 +42,7 @@ spec:
               readOnlyRootFilesystem: true
             resources:
               limits:
-                cpu: 2000m
+                cpu: 1000m
                 memory: 72Mi
               requests:
                 cpu: 5m
