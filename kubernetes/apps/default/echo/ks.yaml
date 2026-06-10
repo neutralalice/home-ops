@@ -7,8 +7,6 @@ spec:
   commonMetadata:
     labels:
       app.kubernetes.io/name: *app
-  components:
-    - ../../../../components/gpu
   interval: 1h
   path: ./kubernetes/apps/default/echo/app
   postBuild:
