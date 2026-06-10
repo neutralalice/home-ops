@@ -12,14 +12,6 @@ spec:
     controllers:
       echo:
         strategy: RollingUpdate
-        pod:
-          resources:
-            limits:
-              cpu: 2000m
-              memory: 72Mi
-            requests:
-              cpu: 5m
-              memory: 72Mi
         containers:
           echo:
             image:
@@ -49,6 +41,12 @@ spec:
               privileged: false
               readOnlyRootFilesystem: true
             resources:
+              limits:
+                cpu: 2000m
+                memory: 72Mi
+              requests:
+                cpu: 5m
+                memory: 72Mi
               claims:
                 - name: gpu
     defaultPodOptions:
