@@ -11,14 +11,6 @@ spec:
   values:
     controllers:
       cloudflare-tunnel:
-        pod:
-          resources:
-            limits:
-              cpu: 2000m
-              memory: 72Mi
-            requests:
-              cpu: 10m
-              memory: 72Mi
         strategy: RollingUpdate
         annotations:
           reloader.stakater.com/auto: "true"
@@ -36,6 +28,13 @@ spec:
               - secretRef:
                   name: cloudflare-tunnel-secret
             args: ["tunnel", "run"]
+            resources:
+              limits:
+                cpu: 2000m
+                memory: 72Mi
+              requests:
+                cpu: 10m
+                memory: 72Mi
             probes:
               liveness: &probes
                 enabled: true
