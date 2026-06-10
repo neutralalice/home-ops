@@ -12,6 +12,6 @@ spec:
             deviceClassName: gpu.intel.com
             selectors:
             - cel:
-                expression: device.attributes["gpu.intel.com"].sriov == false
+                expression: device.attributes["gpu.intel.com"].type == "vf"
             - cel:
                 expression: device.attributes["gpu.intel.com"].pciId == "0x46a6"
