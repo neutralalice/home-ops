@@ -92,6 +92,7 @@ spec:
         ruleSelectorNilUsesHelmValues: false
         scrapeConfigSelectorNilUsesHelmValues: false
         scrapeNativeHistograms: true
+        alwaysScrapeClassicHistograms: true
         serviceMonitorSelectorNilUsesHelmValues: false
         storageSpec:
           volumeClaimTemplate:
