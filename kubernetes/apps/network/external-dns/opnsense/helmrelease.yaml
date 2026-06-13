@@ -78,4 +78,4 @@ spec:
       - gateway-httproute
     triggerLoopOnEvent: true
     txtOwnerId: k8s-internal
-    txtPrefix: k8s.
+    txtPrefix: k8s-%{record_type}.
