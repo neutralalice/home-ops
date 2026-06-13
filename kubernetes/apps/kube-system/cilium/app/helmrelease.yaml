@@ -79,6 +79,8 @@ spec:
         enabled: true
         serviceMonitor:
           enabled: true
+          interval: 15s
+          scrapeTimeout: 10s
       replicas: 1
       resources:
         limits:
@@ -89,6 +91,8 @@ spec:
       enabled: true
       serviceMonitor:
         enabled: true
+        interval: 15s
+        scrapeTimeout: 10s
         trustCRDsExist: true
     resources:
       limits:
