@@ -3,7 +3,7 @@ apiVersion: grafana.integreatly.org/v1beta1
 kind: GrafanaDashboard
 metadata:
   name: enterprise-etcd-btw
-  namepace: kube-system
+  namespace: kube-system
 spec:
   allowCrossNamespaceImport: true
   instanceSelector:
