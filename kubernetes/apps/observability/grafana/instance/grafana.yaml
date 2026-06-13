@@ -72,6 +72,7 @@ spec:
             - name: grafana-data
               persistentVolumeClaim:
                 claimName: grafana-pvc
+  disableDefaultAdminSecret: true
   disableDefaultSecurityContext: All
   httpRoute:
     spec:
