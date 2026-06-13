@@ -93,6 +93,8 @@ spec:
         scrapeConfigSelectorNilUsesHelmValues: false
         scrapeNativeHistograms: true
         alwaysScrapeClassicHistograms: true
+        scrapeInterval: 15s
+        scrapeTimeout: 10s
         serviceMonitorSelectorNilUsesHelmValues: false
         storageSpec:
           volumeClaimTemplate:
