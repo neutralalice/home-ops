@@ -6,6 +6,8 @@ machine:
       imageGCHighThresholdPercent: 70
       imageGCLowThresholdPercent: 50
       serializeImagePulls: false
+      featureGates:
+        NativeHistograms: true
     nodeIP:
       validSubnets:
         - 172.16.69.0/24
