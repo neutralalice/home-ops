@@ -30,5 +30,5 @@ spec:
         type: RuntimeDefault
     serviceMonitor:
       enabled: true
-      interval: 10s
-      scrapeTimeout: 15s
+      interval: 15s
+      scrapeTimeout: 10s
