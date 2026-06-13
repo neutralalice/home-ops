@@ -41,4 +41,4 @@ spec:
     sources: ["crd", "gateway-httproute"]
     triggerLoopOnEvent: true
     txtOwnerId: default
-    txtPrefix: k8s.
+    txtPrefix: k8s-%{record_type}.
