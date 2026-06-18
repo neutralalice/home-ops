@@ -18,7 +18,7 @@ spec:
       enabled: "true"
       org_name: Main Org.
       org_role: Viewer
-      hide_version: "true"
+      hide_version: "false"
     log:
       mode: console
     metrics:
