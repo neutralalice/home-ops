@@ -42,7 +42,7 @@ spec:
         type: Recreate
       template:
         spec:
-          automountServiceAccountToken: true
+          automountServiceAccountToken: false
           containers:
             - name: grafana
               env:
