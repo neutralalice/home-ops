@@ -32,9 +32,9 @@ spec:
     # Tolerations keep it monitoring GPUs the driver taints on a health warning.
     dra:
       enabled: true
-      adminAccess: false
+      adminAccess: true
       deviceClassName: gpu.intel.com
-      allocationMode: ExactCount
+      allocationMode: All
       Count: 1
       tolerations:
         - effect: NoExecute
