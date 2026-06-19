@@ -9,7 +9,6 @@ resources:
   - ./limitrange.yaml
   - ./namespace.yaml
   - ./blackbox-exporter/ks.yaml
-  - ./drm-exporter/ks.yaml
   - ./fluent-bit/ks.yaml
   - ./grafana/ks.yaml
   - ./kepler/ks.yaml

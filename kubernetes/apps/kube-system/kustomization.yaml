@@ -11,6 +11,7 @@ resources:
   - ./namespace.yaml
   - ./cilium/ks.yaml
   - ./coredns/ks.yaml
+  - ./drm-exporter/ks.yaml
   - ./descheduler/ks.yaml
   - ./intel-gpu-resource-driver/ks.yaml
 #  - ./intel-xpumd/ks.yaml
