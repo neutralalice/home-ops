@@ -26,7 +26,7 @@ spec:
     news:
       news_feed_enabled: "false"
     plugins:
-      disable_plugins: "elasticsearch"
+      disable_plugins: "alertmanager,elasticsearch"
       plugin_admin_enabled: "false"
       preinstall_auto_update: "false"
     security:
