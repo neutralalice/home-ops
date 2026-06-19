@@ -34,6 +34,8 @@ spec:
       enabled: true
       adminAccess: false
       deviceClassName: gpu.intel.com
+      allocationMode: ExactCount
+      Count: 1
       tolerations:
         - effect: NoExecute
         - effect: NoSchedule
