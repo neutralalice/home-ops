@@ -44,16 +44,6 @@
       ignoreTests: true,
     },
     {
-      description: "Auto-merge GitHub Releases",
-      matchDatasources: ["github-releases"],
-      automerge: true,
-      automergeType: "branch",
-      matchUpdateTypes: ["minor", "patch"],
-      matchPackageNames: ["/external-dns/", "/gateway-api/", "/prometheus-operator/"],
-      minimumReleaseAge: "5 days",
-      ignoreTests: true,
-    },
-    {
       description: "Auto-merge Mise Release",
       matchManagers: ["mise"],
       automerge: true,
