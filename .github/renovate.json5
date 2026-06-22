@@ -20,6 +20,7 @@
   dependencyDashboardAutoclose: true,
   dependencyDashboardTitle: "Renovate Dashboard",
   minimumReleaseAge: "1 days",
+  enabledManagers: ["flux", "github-actions", "helm-values", "helmfile", "kubernetes", "mise", "renovate-config", "regex"]
   suppressNotifications: ["prEditedNotification", "prIgnoreNotification"],
   flux: {
     managerFilePatterns: ["/\\.yaml(?:\\.j2)?$/"]
