@@ -16,8 +16,13 @@ on:
     inputs:
       dryRun:
         description: Dry Run
-        default: false
-        type: boolean
+        default: null
+        type: choice
+        options:
+          - null
+          - extract
+          - lookup
+          - full
         required: true
       logLevel:
         description: Log Level
